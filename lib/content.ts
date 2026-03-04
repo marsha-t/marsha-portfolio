@@ -27,24 +27,27 @@ function getContentDirectory(type: ContentType) {
  * Get metadata for all content entries
  * Reads all markdown files in given directory
  * Extract frontmatter with matter
- *
+ * Sort newest first
  * @returns Array of metadata
  */
 export function getAllContentMeta(type: ContentType) {
   const directory = getContentDirectory(type);
   const fileNames = fs.readdirSync(directory);
 
-  return fileNames.map((fileName) => {
+  const allContent = fileNames.map((fileName) => {
     const slug = fileName.replace(".md", "");
     const fullPath = path.join(directory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-
+    
     const { data } = matter(fileContents);
-
     return {
       slug,
-      ...(data as ContentMeta), // spread frontmatter properties
+      ...validateMeta(data), // spread frontmatter properties
     };
+  });
+
+  return allContent.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
   });
 }
 
@@ -71,7 +74,23 @@ export async function getContentBySlug(type: ContentType, slug: string) {
 
   return {
     slug,
-    ...(data as ContentMeta),
+    ...validateMeta(data),
     contentHtml,
   };
+}
+
+/**
+ *  Gets metadata for featured content
+ * @param Content type 
+ * @returns Metadata 
+ */
+export function getFeaturedContent(type: ContentType) {
+  return getAllContentMeta(type).filter((item) => { item.featured });
+}
+
+function validateMeta(data: any): ContentMeta {
+  if (!data.title || !data.date) {
+    throw new Error("Missing required frontmatter fields");
+  }
+  return data as ContentMeta;
 }
