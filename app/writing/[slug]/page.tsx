@@ -18,7 +18,6 @@ export default async function WritingPage({
 
   return (
     <article>
-      <h1>{post.title}</h1>
       <p>{post.date}</p>
       <div
         className="prose prose-lg max-w-none"
