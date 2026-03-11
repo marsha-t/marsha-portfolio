@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-0 h-[40%] pointer-events-none shimmer-layer" />
 
       {/* Text content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 mt-20">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 mt-14">
 
         {/* Name at horizon */}
         <h1 className="text-5xl font-bold tracking-tight drop-shadow-sm">
@@ -38,9 +38,8 @@ export default function Hero() {
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg mt-10 max-w-lg opacity-90">
-          Software engineer exploring systems, building thoughtful tools,
-          and writing about how technology works.
+        <p className="text-lg mt-6 max-w-lg opacity-90">
+          Curious about systems, data and how things work
         </p>
 
         {/* Buttons */}
