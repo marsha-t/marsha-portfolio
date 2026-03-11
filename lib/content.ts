@@ -11,8 +11,15 @@ export interface ContentMeta {
   title: string;
   summary: string;
   date: string;
+  year: number;
   featured: boolean;
+  image: string;
+  tech: string[];
+  github?: string;
 }
+
+// Metadata + slug
+type ContentItem = ContentMeta & { slug: string };
 
 /**
  * Return directory path for given content type
@@ -28,9 +35,9 @@ function getContentDirectory(type: ContentType) {
  * Reads all markdown files in given directory
  * Extract frontmatter with matter
  * Sort newest first
- * @returns Array of metadata
+ * @returns Array of metadata + slug
  */
-export function getAllContentMeta(type: ContentType) {
+export function getAllContentMeta(type: ContentType): ContentItem[] {
   const directory = getContentDirectory(type);
   const fileNames = fs.readdirSync(directory);
 
@@ -85,12 +92,33 @@ export async function getContentBySlug(type: ContentType, slug: string) {
  * @returns Metadata 
  */
 export function getFeaturedContent(type: ContentType) {
-  return getAllContentMeta(type).filter((item) => { item.featured });
+  return getAllContentMeta(type).filter((item) => item.featured);
 }
 
 function validateMeta(data: any): ContentMeta {
-  if (!data.title || !data.date) {
-    throw new Error("Missing required frontmatter fields");
+  const requiredFields = ["title", "summary", "date", "year", "featured", "image", "tech"];
+  for (const field of requiredFields) {
+    if (data[field] === undefined) {
+      throw new Error("Missing required frontmatter fields: " + `${field}`);
+    }
   }
-  return data as ContentMeta;
+  
+  if (!Array.isArray(data.tech)) {
+    throw new Error("Frontmatter 'tech' must be an array");
+  }
+  
+  if (data.github && typeof data.github !== "string") {
+    throw new Error("Frontmatter 'github' must be a string");
+  }
+
+  return {
+    title: data.title,
+    summary: data.summary,
+    date: data.date,
+    featured: data.featured,
+    year: data.year,
+    image: data.image,
+    tech: data.tech, 
+    github: data.github,
+  };
 }

@@ -2,7 +2,12 @@
 title: "The JavaScript Runtime: Fixing the Mental Model"
 summary: "..."
 date: "2026-03-03"
+year: 2026
 featured: true
+image: "/default.png"
+tech: 
+  - JavaScript
+github: "..."
 ---
 
 # The JavaScript Runtime: Fixing the Mental Model
