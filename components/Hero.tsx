@@ -39,7 +39,7 @@ export default function Hero() {
 
         {/* Tagline */}
         <p className="text-lg mt-6 max-w-lg opacity-90">
-          Curious about systems, data and how things work
+          Curious about data, software and how things work
         </p>
 
         {/* Buttons */}

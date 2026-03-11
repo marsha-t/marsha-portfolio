@@ -34,8 +34,7 @@ export default function FeaturedProjects() {
         </h2>
 
         <p className="text-neutral-600 mb-14">
-          Selected work exploring real-time applications,
-          systems engineering, and product design.
+          Selected projects exploring data, software and how things work
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">

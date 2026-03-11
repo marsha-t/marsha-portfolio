@@ -14,8 +14,7 @@ export default function Footer() {
         <div>
           <p className="font-semibold text-gray-900">Marsha Teo</p>
           <p className="mt-2">
-            Building software, writing about how things work, and exploring
-            ideas at the intersection of technology and learning.
+            Curious about data, software and how things work
           </p>
         </div>
 
@@ -36,7 +35,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://github.com/"
+                href="https://github.com/marsha-t"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -46,7 +45,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="https://linkedin.com/"
+                href="https://linkedin.com/in/marshateo"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -54,7 +53,7 @@ export default function Footer() {
               </a>
             </li>
 
-            <li>
+            {/* <li>
               <a
                 href="https://medium.com/"
                 target="_blank"
@@ -72,7 +71,7 @@ export default function Footer() {
               >
                 Dev.to
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 

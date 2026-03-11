@@ -1,4 +1,5 @@
 import Link from "next/link"
+import CopyEmail from "@/components/CopyEmail";
 
 export default function AboutPage() {
   return (
@@ -15,21 +16,24 @@ export default function AboutPage() {
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
-          Before programming, I worked as a government economist, using data to
-          evaluate interventions across different policy areas.
+          Before learning to program, I worked as a government economist, 
+          evaluating policy interventions using causal inference and large-scale administrative data.
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
           Programming changed something fundamental for me: 
           I can now build the things I wish existed. 
           That shift shapes many of the projects I explore today.
-          I’m particularly interested in systems that combine rigorous analysis with practical tools, 
-          and I spend much of my time building software while exploring machine learning, data science, and developer tools. 
+        </p>
+        
+        <p className="text-neutral-700 leading-relaxed">
+          My background in causal inference and experimentation continues to influence how I think about building systems and evaluating ideas. 
+          I’m particularly interested in systems that combine rigorous analysis with practical tools. 
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
-          This website is where I share the things I build and the ideas I’m
-          trying to understand.
+          Today, I spend much of my time building software while exploring machine learning, data science, and developer tools. 
+          This website is where I share the things I build and the ideas I’m trying to understand.
         </p>
       </section>
 
@@ -129,7 +133,7 @@ export default function AboutPage() {
           <ul className="space-y-2">
             <li>
               <Link
-                href="https://github.com"
+                href="https://github.com/marsha-t"
                 className="underline hover:no-underline"
               >
                 GitHub
@@ -137,7 +141,7 @@ export default function AboutPage() {
               — code and projects
             </li>
 
-            <li>
+            {/* <li>
               <Link
                 href="https://medium.com"
                 className="underline hover:no-underline"
@@ -145,11 +149,11 @@ export default function AboutPage() {
                 Medium
               </Link>{" "}
               — longer technical writing
-            </li>
+            </li> */}
 
             <li>
               <Link
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/marshateo"
                 className="underline hover:no-underline"
               >
                 LinkedIn
@@ -159,9 +163,9 @@ export default function AboutPage() {
           </ul>
 
           <div className="pt-2">
-            <p className="font-medium">Best way to reach me</p>
             <p className="text-neutral-700">
-              marsha.teo@gmail.com
+              Best way to reach me:{" "}
+              <CopyEmail email="marsha.teo@gmail.com" />
             </p>
           </div>
         </aside>
