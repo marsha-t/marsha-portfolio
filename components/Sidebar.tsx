@@ -1,0 +1,78 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import TableOfContents from "./TableOfContents";
+
+export default function Sidebar({ project }: any) {
+  const [showMeta, setShowMeta] = useState(true);
+
+  useEffect(() => {
+    const hero = document.getElementById("hero-image");
+
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowMeta(entry.isIntersecting);
+      },
+      {
+        rootMargin: "-80px 0px 0px 0px",
+      },
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="sticky top-24 space-y-8 text-sm">
+      {showMeta && (
+        <div className="space-y-4">
+          <div className="text-xs uppercase tracking-wide text-neutral-400">
+            Project
+          </div>
+
+          {project.timeframe && (
+            <div className="text-neutral-600">{project.timeframe}</div>
+          )}
+
+          {project.github && (
+            <div>
+              <div className="font-medium text-neutral-900">Repository</div>
+
+              <a
+                href={project.github}
+                className="text-neutral-600 hover:text-neutral-900 underline"
+                target="_blank"
+              >
+                GitHub
+              </a>
+            </div>
+          )}
+
+          <div>
+            <div className="font-medium text-neutral-900">Tech</div>
+
+            <ul className="mt-1 list-disc list-inside text-neutral-600 space-y-1">
+              {project.tech.map((tech: string) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+
+          {project.team && (
+            <div className="text-neutral-600">
+              <span className="font-medium text-neutral-900">Team:</span>{" "}
+              {project.team}
+            </div>
+          )}
+
+          <div className="border-t border-neutral-200"></div>
+        </div>
+      )}
+
+      <TableOfContents headings={project.headings} />
+    </div>
+  );
+}

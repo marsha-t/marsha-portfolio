@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "highlight.js/styles/github.css";
 
 :root {
   --background: #ffffff;
@@ -69,4 +70,15 @@ body {
   );
 
   opacity: 0.25;
+}
+
+.prose figure {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.prose figcaption {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
 }

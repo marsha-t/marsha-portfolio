@@ -4,7 +4,7 @@ summary: "Multiplayer Pong platform with tournaments, authentication, and real-t
 date: "2026-01-26"
 year: 2026
 featured: true
-image: "/projects/transcendence.png"
+image: "/projects/transcendence/transcendence.png"
 tech:
   - TypeScript
   - Docker
