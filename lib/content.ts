@@ -13,6 +13,12 @@ import { visit } from "unist-util-visit";
 
 export type ContentType = "writing" | "projects";
 
+// Links
+export interface ContentLink {
+  label: string;
+  url: string;
+}
+
 // Metadata shared by all content types
 export interface ContentMeta {
   title: string;
@@ -23,12 +29,14 @@ export interface ContentMeta {
   featured: boolean;
   image: string;
   tech: string[];
-  github?: string;
+  links?: ContentLink[];
   team?: number;
 }
 
+
+
 // Metadata + slug
-type ContentItem = ContentMeta & { slug: string };
+export type ContentItem = ContentMeta & { slug: string };
 
 // Headings in Markdown
 export interface Heading {
@@ -175,15 +183,28 @@ function validateMeta(data: any): ContentMeta {
     throw new Error("Frontmatter 'tech' must be an array");
   }
 
-  if (data.github && typeof data.github !== "string") {
-    throw new Error("Frontmatter 'github' must be a string");
-  }
   if (data.timeframe && typeof data.timeframe !== "string") {
     throw new Error("Frontmatter 'timeframe' must be a string");
   }
+
   if (data.team && typeof data.team !== "number") {
     throw new Error("Frontmatter 'team' must be a number");
   }
+
+   if (data.links) {
+    if (!Array.isArray(data.links)) {
+      throw new Error("Frontmatter 'links' must be an array");
+    }
+
+    for (const link of data.links) {
+      if (typeof link.label !== "string" || typeof link.url !== "string") {
+        throw new Error(
+          "Each link must contain { label: string, url: string }"
+        );
+      }
+    }
+  }
+
   return {
     title: data.title,
     summary: data.summary,
@@ -193,7 +214,7 @@ function validateMeta(data: any): ContentMeta {
     featured: data.featured,
     image: data.image,
     tech: data.tech,
-    github: data.github,
+    links: data.links,
     team: data.team,
   };
 }

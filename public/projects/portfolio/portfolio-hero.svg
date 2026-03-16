@@ -68,7 +68,19 @@
 <line x1="720" y1="620" x2="880" y2="620"/>
 <line x1="700" y1="700" x2="900" y2="700"/>
 
-
 </g>
+
+<!-- Name -->
+<text
+  x="800"
+  y="380"
+  text-anchor="middle"
+  font-family="Inter, system-ui, sans-serif"
+  font-size="80"
+  font-weight="600"
+  fill="#57534e"
+>
+Marsha Teo
+</text>
 
 </svg>

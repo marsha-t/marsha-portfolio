@@ -10,7 +10,9 @@ tech:
   - Systems Programming 
   - C++
   - HTTP
-github: "https://github.com/marsha-t/webserv"
+links:
+  - label: GitHub
+    url: https://github.com/marsha-t/webserv
 team: 2
 
 ---

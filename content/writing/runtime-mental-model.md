@@ -7,7 +7,9 @@ featured: true
 image: "/default.png"
 tech: 
   - JavaScript
-github: "..."
+links:
+  - label: Medium
+    url: 
 ---
 
 # The JavaScript Runtime: Fixing the Mental Model

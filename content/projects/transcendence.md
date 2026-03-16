@@ -11,7 +11,9 @@ tech:
   - SQLite
   - WebSockets
   - Tailwind
-github: "https://github.com/marsha-t/ft_transcendence"
+links:
+  - label: GitHub
+    url: https://github.com/marsha-t/ft_transcendence
 
 ---
 # ft_transcendence: Capstone Project

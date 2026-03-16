@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import TableOfContents from "./TableOfContents";
+import { ContentItem } from "@/lib/content";
 
-export default function Sidebar({ project }: any) {
+export default function Sidebar({ project }: ContentItem) {
   const [showMeta, setShowMeta] = useState(true);
 
   useEffect(() => {
@@ -37,17 +38,23 @@ export default function Sidebar({ project }: any) {
             <div className="text-neutral-600">{project.timeframe}</div>
           )}
 
-          {project.github && (
+          {project.links && project.links.length > 0 && (
             <div>
-              <div className="font-medium text-neutral-900">Repository</div>
+              <div className="font-medium text-neutral-900">Links</div>
 
-              <a
-                href={project.github}
-                className="text-neutral-600 hover:text-neutral-900 underline"
-                target="_blank"
-              >
-                GitHub
-              </a>
+              <ul className="mt-1 space-y-1">
+                {project.links.map((link: any) => (
+                  <li key={link.url}>
+                    <a
+                      href={link.url}
+                      className="text-neutral-600 hover:text-neutral-900 underline"
+                      target="_blank"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 
@@ -61,7 +68,7 @@ export default function Sidebar({ project }: any) {
             </ul>
           </div>
 
-          {project.team && (
+          {project.team && project.team > 1 && (
             <div className="text-neutral-600">
               <span className="font-medium text-neutral-900">Team:</span>{" "}
               {project.team}

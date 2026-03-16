@@ -1,0 +1,99 @@
+<svg width="1100" height="300" viewBox="0 0 1100 300" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10" fill="currentColor"/>
+</marker>
+
+<style>
+.box{
+fill:none;
+stroke:currentColor;
+stroke-width:2;
+rx:12;
+}
+
+.label{
+font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+font-size:16px;
+fill:currentColor;
+text-anchor:middle;
+dominant-baseline:middle;
+}
+
+.arrow{
+stroke:currentColor;
+stroke-width:2;
+fill:none;
+marker-end:url(#arrow);
+}
+
+.icon{
+stroke:currentColor;
+stroke-width:2;
+fill:none;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+</style>
+</defs>
+
+
+<!-- ICONS -->
+
+<!-- markdown document -->
+<g class="icon">
+<rect x="120" y="40" width="40" height="48" rx="6"/>
+<line x1="130" y1="60" x2="150" y2="60"/>
+<line x1="130" y1="72" x2="150" y2="72"/>
+</g>
+
+<!-- frontmatter brackets -->
+<g class="icon">
+<polyline points="390,60 375,70 390,80"/>
+<polyline points="430,60 445,70 430,80"/>
+</g>
+
+<!-- pipeline nodes -->
+<g class="icon">
+<circle cx="690" cy="70" r="6"/>
+<circle cx="710" cy="60" r="6"/>
+<circle cx="730" cy="70" r="6"/>
+<line x1="690" y1="70" x2="710" y2="60"/>
+<line x1="710" y1="60" x2="730" y2="70"/>
+</g>
+
+<!-- browser window -->
+<g class="icon">
+<rect x="960" y="50" width="40" height="30" rx="4"/>
+<line x1="960" y1="58" x2="1000" y2="58"/>
+<circle cx="966" cy="54" r="2"/>
+<circle cx="972" cy="54" r="2"/>
+</g>
+
+
+<!-- BOXES -->
+
+<rect class="box" x="40" y="130" width="200" height="80"/>
+<text class="label" x="140" y="160">Markdown Files</text>
+<text class="label" x="140" y="185">Projects / Writing</text>
+
+<line class="arrow" x1="240" y1="170" x2="320" y2="170"/>
+
+<rect class="box" x="320" y="130" width="200" height="80"/>
+<text class="label" x="420" y="160">Frontmatter</text>
+<text class="label" x="420" y="185">gray-matter</text>
+
+<line class="arrow" x1="520" y1="170" x2="600" y2="170"/>
+
+<rect class="box" x="600" y="130" width="200" height="80"/>
+<text class="label" x="700" y="160">Markdown Processing</text>
+<text class="label" x="700" y="185">remark → rehype</text>
+
+<line class="arrow" x1="800" y1="170" x2="880" y2="170"/>
+
+<rect class="box" x="880" y="130" width="200" height="80"/>
+<text class="label" x="980" y="160">Next.js</text>
+<text class="label" x="980" y="185">Static Pages</text>
+
+</svg>
