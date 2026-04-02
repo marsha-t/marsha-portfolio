@@ -42,7 +42,7 @@ export default function Sidebar({ project }: ContentItem) {
             <div>
               <div className="font-medium text-neutral-900">Links</div>
 
-              <ul className="mt-1 space-y-1">
+              <ul className="mt-1 space-y-1 list-disc list-inside">
                 {project.links.map((link: any) => (
                   <li key={link.url}>
                     <a
