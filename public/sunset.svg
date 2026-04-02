@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800">
+
+<style>
+@keyframes shimmer {
+  0% { transform: translateX(-6px); opacity: 0.25; }
+  50% { transform: translateX(6px); opacity: 0.6; }
+  100% { transform: translateX(-6px); opacity: 0.25; }
+}
+
+@keyframes rise {
+  0% { transform: translateY(35px); }
+  100% { transform: translateY(0px); }
+}
+
+.sun {
+  animation: rise 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+.glow {
+  animation: glowPulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes textReveal {
+  0% { opacity: 0; transform: translateY(8px); }
+  30% { opacity: 0; }
+  70% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes taglineReveal {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  85% { opacity: 0.85; }
+  100% { opacity: 0.85; }
+}
+
+.name {
+  animation: textReveal 2.9s ease-out forwards;
+}
+
+.tagline {
+  animation: taglineReveal 3.2s ease-out forwards;
+}
+
+.reflection line {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.reflection line:nth-child(1) { animation-delay: 0s; }
+.reflection line:nth-child(2) { animation-delay: 0.8s; }
+.reflection line:nth-child(3) { animation-delay: 1.6s; }
+.reflection line:nth-child(4) { animation-delay: 2.4s; }
+
+</style>
+
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#2C3E5D"/>
+  <stop offset="20%" stop-color="#3F5A7A"/>
+  <stop offset="40%" stop-color="#6B5C8A"/>
+  <stop offset="65%" stop-color="#D98FA3"/>
+  <stop offset="85%" stop-color="#F2A97B"/>
+  <stop offset="100%" stop-color="#FFD1A1"/>
+</linearGradient>
+
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#2A3A4F"/>
+  <stop offset="100%" stop-color="#0F1720"/>
+</linearGradient>
+
+<radialGradient id="sunGlow">
+  <stop offset="0%" stop-color="#FFB347" stop-opacity="0.6"/>
+  <stop offset="50%" stop-color="#FF8A5B" stop-opacity="0.25"/>
+  <stop offset="100%" stop-color="#D98FA3" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<!-- Sky -->
+<rect width="1600" height="800" fill="url(#sky)" />
+
+<!-- Glow -->
+<circle cx="800" cy="420" r="500" fill="url(#sunGlow)" class="glow"/>
+
+<!-- Sea -->
+<rect x="0" y="420" width="1600" height="380" fill="url(#sea)" />
+
+<!-- Horizon -->
+<rect x="0" y="420" width="1600" height="120"
+      fill="#FF9A6C"
+      opacity="0.12"/>
+
+<!-- Sun -->
+<circle cx="800" cy="420" r="300"
+        fill="#FF8A5B"
+        opacity="0.9"
+        class="sun"/>
+
+<!-- Mask bottom -->
+<rect x="0" y="420" width="1600" height="380" fill="url(#sea)"/>
+
+<!-- NAME -->
+<text x="800" y="390"
+      text-anchor="middle"
+      font-size="80"
+      font-weight="700"
+      font-family="Inter, system-ui, sans-serif"
+      fill="#ffffff"
+      opacity="0.95"
+      class="name">
+  Marsha Teo
+</text>
+
+<!-- TAGLINE -->
+<text x="800" y="480"
+      text-anchor="middle"
+      font-size="40"
+      font-family="Inter, system-ui, sans-serif"
+      fill="#ffffff"
+      opacity="0.85"
+      class="tagline">
+  Curious about data, software and how things work
+</text>
+
+<!-- Reflection -->
+<g stroke="#ffb347" opacity="0.6" stroke-width="2" class="reflection">
+  <line x1="600" y1="510" x2="1000" y2="510"/>
+  <line x1="500" y1="560" x2="1100" y2="560"/>
+  <line x1="400" y1="620" x2="1200" y2="620"/>
+  <line x1="300" y1="680" x2="1300" y2="680"/>
+</g>
+
+</svg>

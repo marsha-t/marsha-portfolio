@@ -5,7 +5,7 @@ date: "2026-03-16"
 year: 2026
 timeframe: "Mar 2026"
 featured: false
-image: "/hero-sunrise.svg"
+image: "/sunrise.svg"
 tech:
   - Next.js
   - React
