@@ -5,7 +5,8 @@ date: "2026-03-02"
 year: 2026
 timeframe: "Feb–Mar 2026"
 featured: false
-image: "/projects/pixel-companion/pixel-companion.gif"
+image: "/projects/pixel-companion/pixel-companion-hero.png"
+imagePosition: "object-cover object-[center_90%]"
 tech:
   - JavaScript
   - Chrome Extension 

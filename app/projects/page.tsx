@@ -47,6 +47,7 @@ export default function ProjectsPage() {
               title={project.title}
               description={project.summary}
               image={project.image}
+              imagePosition={project.imagePosition}
               href={`/projects/${project.slug}`}
               tech={project.tech}
               variant="featured"
@@ -77,6 +78,7 @@ export default function ProjectsPage() {
                     title={project.title}
                     description={project.summary}
                     image={project.image}
+                    imagePosition={project.imagePosition}
                     href={`/projects/${project.slug}`}
                     tech={project.tech}
                   />

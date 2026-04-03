@@ -5,6 +5,7 @@ type ProjectCardProps = {
   title: string;
   description: string;
   image: string;
+  imagePosition?: string;
   href: string;
   tech: string[];
   className?: string;
@@ -15,6 +16,7 @@ export default function ProjectCard({
   title,
   description,
   image,
+  imagePosition,
   href,
   tech,
   className = "",
@@ -25,6 +27,8 @@ export default function ProjectCard({
 
   const titleSize =
     variant === "featured" ? "text-2xl" : "text-lg";
+  
+    const position = imagePosition || "object-cover";
 
   return (
     <Link href={href} className={`group block ${className}`}>
@@ -40,6 +44,7 @@ export default function ProjectCard({
         duration-300
         hover:-translate-y-1
         hover:shadow-lg
+        flex flex-col h-full
       "
       >
         {/* Image */}
@@ -52,7 +57,7 @@ export default function ProjectCard({
             className={`
               w-full
               ${imageHeight}
-              object-cover
+              ${position}
               transition-transform
               duration-500
               group-hover:scale-105
@@ -71,12 +76,12 @@ export default function ProjectCard({
         </div>
 
         {/* Content */}
-        <div className="p-7">
+        <div className="p-7 flex flex-col flex-1">
           <h3 className={`${titleSize} font-semibold text-neutral-900`}>
-            {title}
+            {title} 
           </h3>
 
-          <p className="text-neutral-600 mt-2 leading-relaxed text-sm">
+          <p className="text-neutral-600 mt-2 leading-relaxed text-sm line-clamp-3">
             {description}
           </p>
 
@@ -99,7 +104,7 @@ export default function ProjectCard({
             ))}
           </div>
 
-          <div className="mt-5 text-sm font-medium text-sky-600">
+          <div className="mt-auto pt-5 text-sm font-medium text-sky-600">
             View project →
           </div>
         </div>

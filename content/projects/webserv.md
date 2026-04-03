@@ -6,6 +6,7 @@ year: 2025
 timeframe: "May-Sep 2025"
 featured: true
 image: "/projects/webserv/hero.svg"
+imagePosition: "object-center"
 tech:
   - Systems Programming 
   - C++

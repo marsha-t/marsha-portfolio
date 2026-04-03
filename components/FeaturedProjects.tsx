@@ -33,6 +33,7 @@ export default function FeaturedProjects() {
               title={project!.title}
               description={project!.summary}
               image={project!.image}
+              imagePosition={project!.imagePosition}
               href={`/projects/${project!.slug}`}
               tech={project!.tech}
               variant={index === 0 ? "featured" : undefined}
@@ -44,18 +45,31 @@ export default function FeaturedProjects() {
           <Link
             href="/projects"
             className="
-              group flex items-center justify-center rounded-2xl border
-              border-dashed border-neutral-300 bg-neutral-50 p-10
-              hover:bg-neutral-100 transition
+              group block
+              rounded-2xl
+              border border-neutral-200
+              bg-white/70 backdrop-blur-sm
+              p-10
+              transition-all duration-300
+              hover:-translate-y-1 hover:shadow-lg
             "
           >
-            <div className="text-center">
-              <div className="text-3xl mb-3 group-hover:translate-x-1 transition">
+            <div className="relative flex flex-col items-center justify-center text-center h-full ">
+              {/* Arrow */}
+              <div className="
+                text-3xl mb-4
+                transition-all duration-300
+                group-hover:translate-x-2 group-hover:scale-110
+              ">
                 →
               </div>
 
-              <div className="font-semibold">More Projects</div>
+              {/* Title */}
+              <div className="font-semibold text-neutral-900">
+                More Projects
+              </div>
 
+              {/* Subtitle */}
               <p className="text-sm text-neutral-500 mt-1">
                 Explore all my work
               </p>

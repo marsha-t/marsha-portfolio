@@ -28,12 +28,11 @@ export interface ContentMeta {
   timeframe?: string;
   featured: boolean;
   image: string;
+  imagePosition?: string;
   tech: string[];
   links?: ContentLink[];
   team?: number;
 }
-
-
 
 // Metadata + slug
 export type ContentItem = ContentMeta & { slug: string };
@@ -190,6 +189,10 @@ function validateMeta(data: any): ContentMeta {
     }
   }
 
+  if (data.imagePosition && typeof data.imagePosition !== "string") {
+    throw new Error("Frontmatter 'imagePosition' must be a string");
+  }
+
   if (!Array.isArray(data.tech)) {
     throw new Error("Frontmatter 'tech' must be an array");
   }
@@ -224,6 +227,7 @@ function validateMeta(data: any): ContentMeta {
     timeframe: data.timeframe,
     featured: data.featured,
     image: data.image,
+    imagePosition: data.imagePosition,
     tech: data.tech,
     links: data.links,
     team: data.team,

@@ -6,6 +6,7 @@ year: 2026
 timeframe: "Mar 2026"
 featured: false
 image: "/sunrise.svg"
+imagePosition: "object-cover"
 tech:
   - Next.js
   - React
