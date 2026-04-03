@@ -6,7 +6,7 @@ year: 2026
 timeframe: "Aug 2025 - Jan 2026"
 featured: true
 image: "/projects/transcendence/gameplay.png"
-imagePosition: "object-cover object-[center_30%]"
+imagePosition: "object-cover object-[center_26%]"
 tech:
   - Tailwind
   - TypeScript

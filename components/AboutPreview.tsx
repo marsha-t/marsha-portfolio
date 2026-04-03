@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function AboutPreview() {
   return (
-    <section className="max-w-3xl mx-auto px-6 py-24">
-      <h2 className="text-3xl font-semibold mb-8">About</h2>
+    <section className="max-w-5xl mx-auto px-6 py-24">
+      <h2 className="text-3xl font-semibold mb-12">About</h2>
 
       <p className="text-gray-700 leading-relaxed mb-4">
         I'm a programmer currently studying at 42 Abu Dhabi. Before programming,

@@ -38,6 +38,9 @@ export default function AboutPage() {
       </section>
 
       {/* Row 1 */}
+      <div className="max-w-5xl mx-auto px-6 my-20">
+        <div className="h-px bg-sky-200/50" />
+      </div>
       <section className="grid md:grid-cols-3 gap-12">
 
         {/* Main content */}
@@ -103,6 +106,9 @@ export default function AboutPage() {
       </section>
 
       {/* Row 2 */}
+      <div className="max-w-5xl mx-auto px-6 my-20">
+        <div className="h-px bg-blue-200/50" />
+      </div>
       <section className="grid md:grid-cols-3 gap-12">
 
         {/* Main */}

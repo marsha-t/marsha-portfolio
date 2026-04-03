@@ -4,41 +4,46 @@ import ProjectCard from "@/components/ProjectCard";
 export default function ProjectsPage() {
   const projects = getAllContentMeta("projects");
 
-  // Split featured vs others
+  // Split featured
   const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
 
-  // Group non-featured projects by year
-  const projectsByYear = others.reduce((acc, project) => {
-    const year = project.year || "Other";
+  const allProjects = projects;
+  // Group projects by year
+  const projectsByYear = allProjects.reduce(
+    (acc, project) => {
+      const year = project.year || "Other";
 
-    if (!acc[year]) {
-      acc[year] = [];
-    }
+      if (!acc[year]) {
+        acc[year] = [];
+      }
 
-    acc[year].push(project);
+      acc[year].push(project);
 
-    return acc;
-  }, {} as Record<string, typeof others>);
+      return acc;
+    },
+    {} as Record<string, typeof allProjects>,
+  );
+
+  Object.values(projectsByYear).forEach((projects) => {
+    projects.sort((a, b) => Number(b.featured) - Number(a.featured));
+  });
 
   // Sort years descending
   const sortedYears = Object.keys(projectsByYear).sort(
-    (a, b) => Number(b) - Number(a)
+    (a, b) => Number(b) - Number(a),
   );
 
   return (
-    <main className="max-w-6xl mx-auto py-20 px-6">
-
+    <main className="max-w-5xl mx-auto py-20 px-6">
       {/* Page title */}
-      <h1 className="text-4xl font-bold mb-16">
-        Projects
-      </h1>
+      <h1 className="text-4xl font-bold mb-4">Projects</h1>
+      <p className="mt-3 mb-8 text-lg text-neutral-600 max-w-2xl ">
+        A collection of things I’ve built
+      </p>
 
       {/* Featured */}
       <section className="mb-24">
-        <h2 className="text-2xl font-semibold mb-10">
-          Featured
-        </h2>
+        <h2 className="text-2xl font-semibold mb-10">Featured</h2>
 
         <div className="grid gap-12">
           {featured.map((project) => (
@@ -57,17 +62,30 @@ export default function ProjectsPage() {
       </section>
 
       {/* Timeline */}
+      <div className="max-w-5xl mx-auto px-6 my-20">
+        <div className="h-px bg-sky-200/50" />
+      </div>
       <section>
-        <h2 className="text-2xl font-semibold mb-12">
-          All Projects
-        </h2>
+        <h2 className="text-2xl font-semibold mb-10">All Projects</h2>
 
-        <div className="space-y-16">
+        <div className="relative  space-y-20">
+          <div className="absolute left-2 top-0 bottom-0 w-px bg-sky-200/50" />
           {sortedYears.map((year) => (
-            <div key={year}>
+            <div key={year} className="relative pl-8">
+              
+              {/* dot */}
+              <div
+                className="
+                absolute left-2 top-1
+                w-2.5 h-2.5
+                -translate-x-1/2
+                bg-sky-300/70
+                rounded-full
+              "
+              />
 
-              {/* Year label */}
-              <h3 className="text-sm uppercase tracking-wider text-gray-400 mb-6">
+              {/* year */}
+              <h3 className="ml-6 mb-4 text-sm uppercase tracking-wider text-gray-400">
                 {year}
               </h3>
 
@@ -84,12 +102,10 @@ export default function ProjectsPage() {
                   />
                 ))}
               </div>
-
             </div>
           ))}
         </div>
       </section>
-
     </main>
   );
 }

@@ -1,13 +1,8 @@
 import Link from "next/link"
 
-/**
- * Footer displayed across the site.
- * Contains navigation, social links, and attribution.
- * Designed as a lightweight personal brand footer.
- */
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-gray-200">
+    <footer className="mt-24 border-t border-sky-200/50">
       <div className="max-w-5xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3 text-sm text-gray-600">
         
         {/* Brand */}
@@ -22,10 +17,26 @@ export default function Footer() {
         <div>
           <p className="font-semibold text-gray-900 mb-3">Explore</p>
           <ul className="space-y-2">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/projects">Projects</Link></li>
-            <li><Link href="/writing">Writing</Link></li>
-            <li><Link href="/about">About</Link></li>
+            <li>
+              <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/projects">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/writing">
+                Writing
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/about">
+                About
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -38,6 +49,7 @@ export default function Footer() {
                 href="https://github.com/marsha-t"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
               >
                 GitHub
               </a>
@@ -48,6 +60,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/marshateo"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
               >
                 LinkedIn
               </a>
@@ -58,6 +71,7 @@ export default function Footer() {
                 href="https://medium.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
               >
                 Medium
               </a>
@@ -68,6 +82,7 @@ export default function Footer() {
                 href="https://dev.to/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
               >
                 Dev.to
               </a>
