@@ -37,7 +37,7 @@ export default function ProjectsPage() {
     <main className="max-w-5xl mx-auto py-20 px-6">
       {/* Page title */}
       <h1 className="text-4xl font-bold mb-4">Projects</h1>
-      <p className="mt-3 mb-8 text-lg text-neutral-600 max-w-2xl ">
+      <p className="mt-3 mb-8 text-neutral-600 max-w-2xl ">
         A collection of things I’ve built
       </p>
 

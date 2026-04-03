@@ -7,7 +7,7 @@ export default function WritingPage() {
   return (
     <main className="max-w-3xl mx-auto py-20 px-6">
       <h1 className="text-4xl font-bold mb-4">Writing</h1>
-      <p className="mt-3 text-lg text-neutral-600 max-w-2xl ">
+      <p className="mt-3 text-neutral-600 max-w-2xl ">
         Writing to understand how things work
       </p>
       <div className="space-y-6">
