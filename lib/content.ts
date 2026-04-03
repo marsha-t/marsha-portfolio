@@ -82,10 +82,27 @@ export function getAllContentMeta(type: ContentType): ContentItem[] {
 }
 
 /**
+ * Recursively extract plain text content from Markdown/HTML AST node
+ * Used to handle inline code in headers
+ * @param node - AST node (remark or rehype)
+ * @returns concatenated text content
+ */
+function getText(node: any): string {
+  if (node.type === "text" || node.type === "inlineCode") {
+    return node.value;
+  }
+
+  if (node.children) {
+    return node.children.map(getText).join("");
+  }
+
+  return "";
+}
+
+/**
  * Remark plugin that extracts section headings from Markdown AST
  * Traverse AST using unist-util-visit and collects all level-2 headings
  * Extracts text content 
- * Generates slugified id (lowercase, removed punctuation and space)
  * Attach as Heading in processing context
  * @returns function which receives markdown AST and processing context
  */
@@ -93,26 +110,20 @@ function extractHeadings() {
   return (tree: any, file: any) => {
     const headings: Heading[] = [];
 
-    visit(tree, "heading", (node: any) => {
-      if (node.depth === 2) {
-        const text = node.children
-          .filter((child: any) => child.type === "text")
-          .map((child: any) => child.value)
-          .join("");
+    visit(tree, "element", (node: any) => {
+      if (node.tagName === "h2") {
+        const text = getText(node);
+        const id = node.properties?.id;
 
-        const id = text
-          .toLowerCase()
-          .replace(/[^\w\s]/g, "")
-          .replace(/\s+/g, "-");
-
-        headings.push({ text, id });
+        if (id) {
+          headings.push({ text, id });
+        }
       }
     });
 
     file.data.headings = headings;
   };
 }
-
 /*
  * Get article by its slug
  * Reads markdown file and converts to HTML
@@ -132,10 +143,10 @@ export async function getContentBySlug(type: ContentType, slug: string) {
   // - .process() to run markdown content through processor; is async
   const processedContent = await remark()
     .use(remarkGfm) // tables, strikethrough, task lists
-    .use(extractHeadings)
     .use(remarkRehype, { allowDangerousHtml: true }) // markdown → html AST
     .use(rehypeRaw) // allow HTML inside markdown
     .use(rehypeSlug) // add ids to headings
+    .use(extractHeadings)
     .use(rehypeAutolinkHeadings, {
       behavior: "wrap",
     }) // clickable heading anchors

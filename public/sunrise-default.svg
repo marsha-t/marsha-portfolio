@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800">
+
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#cfd8f6"/> 
+<stop offset="40%" stop-color="#f3d6df"/>
+<stop offset="75%" stop-color="#f7e3d7"/>
+<stop offset="100%" stop-color="#f9eadf"/>
+</linearGradient>
+
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#c6d5ef"/>
+<stop offset="100%" stop-color="#a9bdd9"/>
+</linearGradient>
+
+<radialGradient id="sunGlow">
+  <stop offset="0%" stop-color="#fff7c7" stop-opacity="1"/>
+  <stop offset="40%" stop-color="#fff7c7" stop-opacity="0.5"/>
+  <stop offset="75%" stop-color="#fff7c7" stop-opacity="0.15"/>
+  <stop offset="100%" stop-color="#fff7c7" stop-opacity="0"/>
+</radialGradient>
+
+</defs>
+
+<!-- Sky -->
+<rect width="1600" height="800" fill="url(#sky)" />
+
+<!-- Glow -->
+<circle cx="800" cy="420" r="500" fill="url(#sunGlow)" class="glow"/>
+
+<!-- Sea -->
+<rect x="0" y="420" width="1600" height="380" fill="url(#sea)" />
+
+<!-- Horizon -->
+<rect x="0" y="420" width="1600" height="2" fill="#e6c7c7" opacity="0.5"/>
+
+<!-- Sun -->
+<circle cx="800" cy="420" r="300" fill="#fff7c7" class="sun"/>
+
+<!-- Mask bottom -->
+<rect x="0" y="420" width="1600" height="380" fill="url(#sea)"/>
+
+<!-- Reflection -->
+<g stroke="#fff7c7" stroke-width="2" class="reflection">
+  <line x1="600" y1="510" x2="1000" y2="510"/>
+  <line x1="500" y1="560" x2="1100" y2="560"/>
+  <line x1="400" y1="620" x2="1200" y2="620"/>
+  <line x1="300" y1="680" x2="1300" y2="680"/>
+</g>
+
+</svg>

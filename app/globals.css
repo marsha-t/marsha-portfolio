@@ -28,7 +28,8 @@ body {
 }
 
 @keyframes sunriseGlow {
-  0%,100% {
+  0%,
+  100% {
     opacity: 0.5;
   }
   50% {
@@ -53,7 +54,7 @@ body {
   background: linear-gradient(
     120deg,
     transparent 40%,
-    rgba(255,255,255,0.12) 50%,
+    rgba(255, 255, 255, 0.12) 50%,
     transparent 60%
   );
 
@@ -64,9 +65,9 @@ body {
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(0,0,0,0.4) 25%,
-    rgba(0,0,0,1) 60%,
-    rgba(0,0,0,1) 100%
+    rgba(0, 0, 0, 0.4) 25%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 1) 100%
   );
 
   opacity: 0.25;
@@ -81,4 +82,27 @@ body {
   font-size: 0.85rem;
   color: #6b7280;
   margin-top: 0.5rem;
+}
+
+.prose pre code.hljs {
+  background: transparent !important;
+}
+
+.code-wrapper {
+  margin: 1.5rem 0;
+}
+
+.code-wrapper button {
+  backdrop-filter: blur(4px);
+}
+
+.prose h1 code,
+.prose h2 code,
+.prose h3 code,
+.prose h4 code {
+  all: unset;
+  font: inherit;
+  color: inherit;
+  font-family: var(--font-mono);
+  opacity: 0.85;
 }

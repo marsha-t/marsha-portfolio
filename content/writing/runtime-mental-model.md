@@ -1,20 +1,25 @@
 ---
 title: "The JavaScript Runtime: Fixing the Mental Model"
-summary: "..."
+summary: "Why doesn’t setTimeout interrupt your code? This article breaks the illusion: JavaScript runs synchronously, and async APIs don’t interrupt. Instead, they schedule."
 date: "2026-03-03"
 year: 2026
 featured: true
-image: "/default.png"
+image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
   - label: Medium
-    url: 
+    url: http://medium.com
 ---
 
+<p className="mt-4 text-sm text-neutral-500 italic">
+  This article is part of a series on the JavaScript event loop.
+  <a href="/writing/javascript-event-loop-landing" className="underline hover:text-neutral-700">
+    View all articles →
+  </a>
+</p>
+
 # The JavaScript Runtime: Fixing the Mental Model
-*This article is part of a series on the JavaScript event loop.*
-<mark>TODO link to landing page</mark>
 
 Most explanations of JavaScript's event loop start with:
 > JavaScript is single-threaded.
