@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 import TableOfContents from "./TableOfContents";
-import { ContentItem } from "@/lib/content";
+import { ContentItem, ContentWithHtml } from "@/lib/content";
 
-export default function Sidebar({ project }: ContentItem) {
+type SidebarProps = {
+  project: ContentWithHtml;
+};
+
+export default function Sidebar({ project }: SidebarProps) {
   const [showMeta, setShowMeta] = useState(true);
 
   useEffect(() => {

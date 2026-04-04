@@ -37,6 +37,11 @@ export interface ContentMeta {
 // Metadata + slug
 export type ContentItem = ContentMeta & { slug: string };
 
+// Content + HTML + Headers
+export type ContentWithHtml = ContentItem & {
+  contentHtml: string;
+  headings: Heading[];
+};
 // Headings in Markdown
 export interface Heading {
   text: string;
@@ -129,7 +134,7 @@ function extractHeadings() {
  * @param slug (filename without .md extension)
  * @returns
  */
-export async function getContentBySlug(type: ContentType, slug: string) {
+export async function getContentBySlug(type: ContentType, slug: string): Promise<ContentWithHtml> {
   const directory = getContentDirectory(type);
   const fullPath = path.join(directory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");

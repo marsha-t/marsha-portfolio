@@ -57,7 +57,3 @@ export default async function ProjectPage({
     </main>
   );
 }
-
-// [&_h1>a]:font-bold
-            // [&_h2>a]:font-bold
-            // [&_h3>a]:font-semibold
