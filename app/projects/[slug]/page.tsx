@@ -25,9 +25,26 @@ export default async function ProjectPage({
           className="
             prose prose-neutral
             max-w-none
-            prose-headings:scroll-mt-24
+
+            prose-h1:text-4xl
+            prose-h2:text-2xl
+            prose-h3:text-xl
+
+            [&_h1_a]:no-underline
+            [&_h2_a]:no-underline
+            [&_h3_a]:no-underline
+            
+            [&_h1_a:hover]:underline
+            [&_h2_a:hover]:underline
+            [&_h3_a:hover]:underline
+
+            [&_h1_a]:font-bold
+            [&_h2_a]:font-bold
+            [&_h3_a]:font-semibold
+
             prose-img:rounded-lg
             prose-img:mx-auto
+
             prose-pre:bg-neutral-900
             prose-pre:text-neutral-100
           "
@@ -40,3 +57,7 @@ export default async function ProjectPage({
     </main>
   );
 }
+
+// [&_h1>a]:font-bold
+            // [&_h2>a]:font-bold
+            // [&_h3>a]:font-semibold

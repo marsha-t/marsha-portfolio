@@ -40,9 +40,24 @@ export default async function WritingPage({
             prose-code: affects <code>: inline and inside <pre> */}
           <article
             className="
-              prose prose-neutral prose-lg
+              prose prose-neutral
               max-w-none
-              prose-headings:scroll-mt-24
+              
+              prose-h1:text-4xl
+              prose-h2:text-2xl
+              prose-h3:text-xl
+
+              [&_h1_a]:no-underline
+              [&_h2_a]:no-underline
+              [&_h3_a]:no-underline
+              
+              [&_h1_a:hover]:underline
+              [&_h2_a:hover]:underline
+              [&_h3_a:hover]:underline
+
+              [&_h1_a]:font-bold
+              [&_h2_a]:font-bold
+              [&_h3_a]:font-semibold
 
               prose-img:rounded-lg
               prose-img:mx-auto
@@ -68,6 +83,8 @@ export default async function WritingPage({
               prose-headings:code:font-inherit
               prose-headings:code:text-[inherit]
               prose-headings:code:text-base
+
+              
           "
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
