@@ -24,7 +24,6 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "remark-rehype": "^11.1.2",
-    "remark-slug": "^8.0.0",
     "remark-toc": "^9.0.0"
   },
   "devDependencies": {
