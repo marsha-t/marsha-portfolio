@@ -66,9 +66,9 @@ export default function Footer() {
               </a>
             </li>
 
-            {/* <li>
+            <li>
               <a
-                href="https://medium.com/"
+                href="https://medium.com/@marshateo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
@@ -79,14 +79,14 @@ export default function Footer() {
 
             <li>
               <a
-                href="https://dev.to/"
+                href="https://dev.to/marshateo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
               >
                 Dev.to
               </a>
-            </li> */}
+            </li>
           </ul>
         </div>
 

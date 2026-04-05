@@ -1,10 +1,9 @@
-import Link from "next/link"
+import Link from "next/link";
 import CopyEmail from "@/components/CopyEmail";
 
 export default function AboutPage() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-20 space-y-20">
-
       {/* Intro */}
       <section className="max-w-3xl space-y-6">
         <h1 className="text-4xl font-semibold tracking-tight">
@@ -12,28 +11,34 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-lg font-medium">
-          I'm Marsha, a programmer studying software engineering at 42 Abu Dhabi.
+          I'm Marsha, a programmer studying software engineering at 42 Abu
+          Dhabi.
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
-          Before learning to program, I worked as a government economist, 
-          evaluating policy interventions using causal inference and large-scale administrative data.
+          Before learning to program, I worked as a government economist,
+          evaluating policy interventions using causal inference and large-scale
+          administrative data.
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
-          Programming changed something fundamental for me: 
-          I can now build the things I wish existed. 
-          That shift shapes many of the projects I explore today.
-        </p>
-        
-        <p className="text-neutral-700 leading-relaxed">
-          My background in causal inference and experimentation continues to influence how I think about building systems and evaluating ideas. 
-          I’m particularly interested in systems that combine rigorous analysis with practical tools. 
+          Programming changed something fundamental for me: I can now build the
+          things I wish existed. That shift shapes many of the projects I
+          explore today.
         </p>
 
         <p className="text-neutral-700 leading-relaxed">
-          Today, I spend much of my time building software while exploring machine learning, data science, and developer tools. 
-          This website is where I share the things I build and the ideas I’m trying to understand.
+          My background in causal inference and experimentation continues to
+          influence how I think about building systems and evaluating ideas. I’m
+          particularly interested in systems that combine rigorous analysis with
+          practical tools.
+        </p>
+
+        <p className="text-neutral-700 leading-relaxed">
+          Today, I spend much of my time building software while exploring
+          machine learning, data science, and developer tools. This website is
+          where I share the things I build and the ideas I’m trying to
+          understand.
         </p>
       </section>
 
@@ -42,7 +47,6 @@ export default function AboutPage() {
         <div className="h-px bg-sky-200/50" />
       </div>
       <section className="grid md:grid-cols-3 gap-12">
-
         {/* Main content */}
         <div className="md:col-span-2 space-y-6">
           <h2 className="text-2xl font-semibold">
@@ -50,8 +54,9 @@ export default function AboutPage() {
           </h2>
 
           <p className="text-neutral-700 leading-relaxed">
-            Programming has made it possible for me to turn ideas into prototypes.
-            I have a growing list of things I’d like to explore, including:
+            Programming has made it possible for me to turn ideas into
+            prototypes. I have a growing list of things I’d like to explore,
+            including:
           </p>
 
           <ul className="list-disc ml-5 space-y-3 text-neutral-700">
@@ -65,9 +70,7 @@ export default function AboutPage() {
               decision-making
             </li>
 
-            <li>
-              Small tools that solve specific everyday problems
-            </li>
+            <li>Small tools that solve specific everyday problems</li>
           </ul>
         </div>
 
@@ -84,23 +87,17 @@ export default function AboutPage() {
 
           <div>
             <p className="font-medium">Frameworks</p>
-            <p className="text-neutral-600">
-              Next.js • Node.js • Flutter
-            </p>
+            <p className="text-neutral-600">Next.js • Node.js • Flutter</p>
           </div>
 
           <div>
             <p className="font-medium">Infrastructure & Tools</p>
-            <p className="text-neutral-600">
-              Docker • Git • Tailwind • Prisma
-            </p>
+            <p className="text-neutral-600">Docker • Git • Tailwind • Prisma</p>
           </div>
 
           <div>
             <p className="font-medium">Data & AI</p>
-            <p className="text-neutral-600">
-              pandas • scikit-learn • Stata
-            </p>
+            <p className="text-neutral-600">pandas • scikit-learn • Stata</p>
           </div>
         </aside>
       </section>
@@ -110,16 +107,11 @@ export default function AboutPage() {
         <div className="h-px bg-blue-200/50" />
       </div>
       <section className="grid md:grid-cols-3 gap-12">
-
         {/* Main */}
         <div className="md:col-span-2 space-y-6">
-          <h2 className="text-2xl font-semibold">
-            Outside of Coding
-          </h2>
+          <h2 className="text-2xl font-semibold">Outside of Coding</h2>
 
-          <p className="text-neutral-700">
-            I enjoy:
-          </p>
+          <p className="text-neutral-700">I enjoy:</p>
 
           <ul className="list-disc ml-5 space-y-2 text-neutral-700">
             <li>Brazilian Jiu-Jitsu</li>
@@ -135,48 +127,66 @@ export default function AboutPage() {
           <p className="text-neutral-600">
             You can explore more of my work here:
           </p>
-
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             <li>
+              <p className="text-xs uppercase tracking-wide text-neutral-400">
+                Code and projects
+              </p>
               <Link
                 href="https://github.com/marsha-t"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline hover:no-underline"
               >
                 GitHub
-              </Link>{" "}
-              — code and projects
+              </Link>
             </li>
 
-            {/* <li>
+            <li>
+              <p className="text-xs uppercase tracking-wide text-neutral-400">
+                Writing
+              </p>
               <Link
-                href="https://medium.com"
+                href="https://medium.com/@marshateo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline hover:no-underline"
               >
                 Medium
               </Link>{" "}
-              — longer technical writing
-            </li> */}
+              ·{" "}
+              <Link
+                href="https://dev.to/marshateo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:no-underline"
+              >
+                Dev.to
+              </Link>
+            </li>
 
             <li>
+              <p className="text-xs uppercase tracking-wide text-neutral-400">
+                Professional background
+              </p>
               <Link
                 href="https://linkedin.com/in/marshateo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline hover:no-underline"
               >
                 LinkedIn
-              </Link>{" "}
-              — professional background
+              </Link>
             </li>
           </ul>
 
           <div className="pt-2">
             <p className="text-neutral-700">
-              Best way to reach me:{" "}
-              <CopyEmail email="marsha.teo@gmail.com" />
+              Best way to reach me: <CopyEmail email="marsha.teo@gmail.com" />
             </p>
           </div>
         </aside>
       </section>
-
     </main>
-  )
+  );
 }

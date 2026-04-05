@@ -53,6 +53,7 @@ export default function Sidebar({ project }: SidebarProps) {
                       href={link.url}
                       className="text-neutral-600 hover:text-neutral-900 underline"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {link.label}
                     </a>
