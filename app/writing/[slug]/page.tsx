@@ -90,7 +90,34 @@ export default async function WritingPage({
           />
         </div>
         <aside className="hidden lg:block">
-          <div className="sticky top-24">
+          <div className="sticky top-24 space-y-4">
+
+            {/* Cross-posted links */}
+            {post.links && post.links.length > 0 && (
+              <div className="text-sm">
+                <div className="text-neutral-900">
+                  Also published on
+                </div>
+
+                <ul className="mt-1 space-y-1 list-disc list-inside">
+                  {post.links.map((link) => (
+                    <li key={link.url}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-600 hover:text-neutral-900 underline"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="border-t border-neutral-200"></div>
+
             <TableOfContents headings={post.headings} />
           </div>
         </aside>

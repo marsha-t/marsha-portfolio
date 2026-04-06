@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import TableOfContents from "./TableOfContents";
-import { ContentItem, ContentWithHtml } from "@/lib/content";
+import { ContentWithHtml } from "@/lib/content";
 
 type SidebarProps = {
   project: ContentWithHtml;
@@ -34,17 +34,13 @@ export default function Sidebar({ project }: SidebarProps) {
     <div className="sticky top-24 space-y-8 text-sm">
       {showMeta && (
         <div className="space-y-4">
-          <div className="text-xs uppercase tracking-wide text-neutral-400">
-            Project
-          </div>
-
           {project.timeframe && (
             <div className="text-neutral-600">{project.timeframe}</div>
           )}
 
           {project.links && project.links.length > 0 && (
             <div>
-              <div className="font-medium text-neutral-900">Links</div>
+              <div className="text-neutral-900">Links</div>
 
               <ul className="mt-1 space-y-1 list-disc list-inside">
                 {project.links.map((link: any) => (

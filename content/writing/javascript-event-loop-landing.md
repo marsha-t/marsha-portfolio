@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Event Loop Series: Building the Event Loop Mental Model from Experiments"
 summary: "JavaScript’s event loop often feels magical—until it breaks your expectations. This series builds a precise mental model of how JavaScript actually runs, from tasks and microtasks to rendering and real UI behavior."
-date: "2026-03-03"
+date: "2026-04-06"
 year: 2026
 featured: true
 image: "/sunrise-default.svg"

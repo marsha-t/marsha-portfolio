@@ -4,7 +4,9 @@ Personal portfolio to showcase my projects and writing in data and software.
 
 Built as a content system where  projects and articles are written as structured markdown and rendered into pages automatically.
 
-🔗 Live site: https://marshateo.com
+🔗 Live site: <a href="https://marshateo.com" target="_blank" rel="noopener noreferrer">
+  https://marshateo.com
+</a>
 
 <img src="./assets/ft_transcendence-screenshot.png"/>
 
@@ -74,4 +76,7 @@ This project helped me think more clearly about:
 
 ## More details
 
-A full write-up of this project is available on the [site](https://marshateo.com/projects/portfolio).
+A full write-up of this project is available on the 
+<a href="https://marshateo.com/projects/portfolio" target="_blank" rel="noopener noreferrer">
+  site
+</a>.

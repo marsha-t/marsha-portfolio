@@ -1,7 +1,7 @@
 ---
 title: "The JavaScript Runtime: Fixing the Mental Model"
 summary: "Why doesn’t setTimeout interrupt your code? This article breaks the illusion: JavaScript runs synchronously, and async APIs don’t interrupt. Instead, they schedule."
-date: "2026-03-03"
+date: "2026-04-06"
 year: 2026
 featured: true
 image: "/sunrise-default.svg"
@@ -74,7 +74,7 @@ sync start
 sync end
 ```
 
-## Test 1: Can `setTimeout` Interrupt a Loop?
+## Test 1: Can `setTimeout` Interrupt a Lo op?
 
 Let's introduce an asynchronous mechanism with `setTimeout`:
 
@@ -155,7 +155,7 @@ This resembles signal handlers in C where a signal can interrupt a running progr
 We may also hold the mental model that: 
 > Timers or promises run JavaScript on another thread.
 
-In this model, JavaScript runs concurrently in multiple threads: The script is running on one thread; Timers run in a background thread; Promises resolve in another (or the same) background thread. IF that were true, we would see interleaved console output.  
+In this model, JavaScript runs concurrently in multiple threads: The script is running on one thread; Timers run in a background thread; Promises resolve in another (or the same) background thread. If that were true, we would see interleaved console output.  
 
 However, in both tests, there is no interruption nor interleaved output between `sync start` and `sync end` in the console. These tests force us to accept that JavaScript execution is not pre-emptive. When JavaScript starts executing a task, it continues until the call stack is empty. Only then can anything else run JavaScript. Asynchronous work waits and queues.
 
@@ -203,12 +203,11 @@ No worries if this doesn't make complete sense yet. We will refine "task" in lat
 
 ## What This Sets Up
 
-We've shown that:
 From this article, we have established:
 - JavaScript runs synchronously inside a task
 - Nothing can interrupt that execution
 - Asynchronous mechanisms do not cut in - they schedule. 
 
-But if asychronous callbacks don't interrupt running code, how and when are they allowed to run? What exactly is a 'task'? Where are these queues? Who decides what runs next?
+But if asynchronous callbacks don't interrupt running code, how and when are they allowed to run? What exactly is a 'task'? Where are these queues? Who decides what runs next?
 
 This is the subject of the next article. 
