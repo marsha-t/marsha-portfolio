@@ -32,7 +32,6 @@ team: 1
 
 </div>
 
-
 ## Overview
 
 Pixel Companion for YouTube is a Chrome extension that adds a small animated pixel-art companion to the YouTube interface. 

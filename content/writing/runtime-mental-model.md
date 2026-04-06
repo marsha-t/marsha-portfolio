@@ -21,6 +21,8 @@ links:
 
 # The JavaScript Runtime: Fixing the Mental Model
 
+<div id="scroll-trigger">
+
 Most explanations of JavaScript's event loop start with:
 > JavaScript is single-threaded.
 
@@ -42,6 +44,8 @@ In this series, we'll build the understanding needed to make JavaScript stop fee
 Today's core claim is simple: 
 
 > JavaScript executes synchronously inside a task, and nothing can interrupt that execution.
+
+</div>
 
 ##  What Does "Synchronous" and "Asynchronous" Really Mean?
 First, let's define 'synchronous' and 'asynchronous' precisely.

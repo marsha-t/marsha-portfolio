@@ -10,9 +10,13 @@ tech:
 links:
   - label: Medium
     url: http://medium.com
+  - label: Dev.to
+    url: http://dev.to
 ---
 
 # JavaScript Event Loop Series: Building the Event Loop Mental Model from Experiments
+
+<div id="scroll-trigger">
 
 I wrote this series because JavaScript has many "asynchronous" mechanisms (`await`, `setTimeout`, `Promise`, `requestAnimationFrame`) that look similar but behave very differently.
 
@@ -36,6 +40,7 @@ From there, we layer in:
 * **`requestAnimationFrame`** (the missing pre-render scheduling layer), and finally, 
 * what this means for **real UI code**. 
 
+</div>
 ## Who this is for
 
 This series is for you if you’ve ever felt that JavaScript async behavior is:

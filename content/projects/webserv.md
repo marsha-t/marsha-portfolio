@@ -30,7 +30,6 @@ team: 2
 
 </div>
 
-
 ## Overview
 
 Webserv is a custom HTTP server built from scratch using C++98 and POSIX sockets. The project recreates core functionality of production web servers such as request parsing, routing, static file serving, and CGI execution.

@@ -25,14 +25,15 @@ team: 4
 # ft_transcendence: A Real-Time Pong Platform
 *Designing a real-time multiplayer game system with microservices, WebSockets, and full-stack tournament play*
 
-<figure>
-<img src="/projects/transcendence/ai-game-point.gif"   style="max-width: 700px; width: 100%; max-height: 700px; height: 100%"
+<div id="hero-image">
+
+<img 
+  src="/projects/transcendence/ai-game-point.gif"   
+  alt="Real-time gameplay against an AI opponent"
+  style="max-width: 700px; width: 100%; max-height: 700px; height: 100%"
 />
 
-<figcaption>
-Real-time gameplay against an AI opponent
-</figcaption>
-</figure>
+</div>
 
 ## Overview
 
