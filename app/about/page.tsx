@@ -1,6 +1,10 @@
 import Link from "next/link";
 import CopyEmail from "@/components/CopyEmail";
 
+export const metadata = {
+  title: "About",
+};
+
 export default function AboutPage() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-20 space-y-20">

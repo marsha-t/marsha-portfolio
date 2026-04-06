@@ -1,6 +1,10 @@
 import { getAllContentMeta } from "@/lib/content";
 import ProjectCard from "@/components/ProjectCard";
 
+export const metadata = {
+  title: "Projects",
+};
+
 export default function ProjectsPage() {
   const projects = getAllContentMeta("projects");
 

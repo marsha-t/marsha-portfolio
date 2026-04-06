@@ -4,6 +4,10 @@ import CurrentFocus from "@/components/CurrentFocus";
 import AboutPreview from "@/components/AboutPreview";
 import Contact from "@/components/Contact";
 
+export const metadata = {
+  title: "Marsha Teo",
+};
+
 export default function HomePage() {
   return (
     <>

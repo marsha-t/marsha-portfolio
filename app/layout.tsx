@@ -2,6 +2,19 @@ import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 
+export const metadata = {
+  title: {
+    default: "Marsha Teo", 
+    template: "%s - Marsha Teo"
+  },
+  description: "Portfolio and writing on data and software",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  }
+};
+
 export default function RootLayout({
   children,
 }: {

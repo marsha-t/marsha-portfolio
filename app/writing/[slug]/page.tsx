@@ -1,6 +1,6 @@
 import { getContentBySlug, getAllContentMeta } from "@/lib/content";
-import TableOfContents from "@/components/TableOfContents";
 import CodeEnhancer from "@/components/CodeEnhancer";
+import Sidebar from "@/components/Sidebar";
 
 export async function generateStaticParams() {
   const posts = getAllContentMeta("writing");
@@ -8,6 +8,20 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const project = await getContentBySlug("writing", slug);
+
+  return {
+    title: project.title,
+  };
 }
 
 export default async function WritingPage({
@@ -90,10 +104,40 @@ export default async function WritingPage({
           />
         </div>
         <aside className="hidden lg:block">
-          <div className="sticky top-24 space-y-4">
+          <Sidebar
+            headings={post.headings}
+            triggerId="scroll-trigger"
+            meta={
+              <>
+                {post.links && post.links.length > 0 && (
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-neutral-400 mb-2">
+                      Also published on
+                    </div>
 
-            {/* Cross-posted links */}
-            {post.links && post.links.length > 0 && (
+                    <ul className="space-y-1">
+                      {post.links.map((link: any) => (
+                        <li key={link.url}>
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-600 hover:text-neutral-900 underline"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </>
+            }
+          />
+          {/* {<div className="sticky top-24 space-y-4"> */}
+
+          {/* Cross-posted links */}
+          {/* {post.links && post.links.length > 0 && (
               <div className="text-sm">
                 <div className="text-neutral-900">
                   Also published on
@@ -118,8 +162,8 @@ export default async function WritingPage({
 
             <div className="border-t border-neutral-200"></div>
 
-            <TableOfContents headings={post.headings} />
-          </div>
+            <TableOfContents headings={post.headings} /> */}
+          {/* </div> } */}
         </aside>
       </div>
       <CodeEnhancer />

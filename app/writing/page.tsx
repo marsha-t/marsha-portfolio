@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { getAllContentMeta } from "@/lib/content";
 
+export const metadata = {
+  title: "Writing",
+};
+
 export default function WritingPage() {
   const posts = getAllContentMeta("writing");
 

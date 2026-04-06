@@ -9,6 +9,20 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const project = await getContentBySlug("projects", slug);
+
+  return {
+    title: project.title,
+  };
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -50,9 +64,55 @@ export default async function ProjectPage({
           "
           dangerouslySetInnerHTML={{ __html: project.contentHtml }}
         />
-       <aside className="hidden lg:block">
-        <Sidebar project={project} />
-      </aside>
+        
+        <aside className="hidden lg:block">
+          <Sidebar
+            headings={project.headings}
+            meta={
+              <>
+                {project.timeframe && (
+                  <div className="text-neutral-600">{project.timeframe}</div>
+                )}
+
+                {project.links && project.links.length > 0 && (
+                  <div>
+                    <div className="text-neutral-900">Links</div>
+                    <ul className="mt-1 space-y-1 list-disc list-inside">
+                      {project.links.map((link: any) => (
+                        <li key={link.url}>
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-600 hover:text-neutral-900 underline"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div>
+                  <div className="font-medium text-neutral-900">Tech</div>
+                  <ul className="mt-1 list-disc list-inside text-neutral-600 space-y-1">
+                    {project.tech.map((tech: string) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {project.team && project.team > 1 && (
+                  <div className="text-neutral-600">
+                    <span className="font-medium text-neutral-900">Team:</span>{" "}
+                    {project.team}
+                  </div>
+                )}
+              </>
+            }
+          />
+        </aside>
       </div>
     </main>
   );
