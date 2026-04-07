@@ -67,7 +67,7 @@ Here’s how the model unfolds:
 
 Why doesn’t `setTimeout` interrupt your code? This article breaks the illusion: JavaScript runs synchronously, and async APIs don’t interrupt. Instead, they schedule.
 
-Read it [here](runtime-mental-model.md). 
+Read it [here](runtime-mental-model). 
 
 **2) Macrotasks: What a Task Actually Is**
 
