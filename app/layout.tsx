@@ -5,14 +5,15 @@ import Footer from "@/components/Footer"
 export const metadata = {
   title: {
     default: "Marsha Teo", 
-    template: "%s - Marsha Teo"
+    template: "%s - Marsha Teo",
   },
   description: "Portfolio and writing on data and software",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
     apple: "/icon.png",
-  }
+  },
+  colorScheme: "light",
 };
 
 export default function RootLayout({
