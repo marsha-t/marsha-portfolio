@@ -9,7 +9,9 @@ tech:
   - JavaScript
 links:
   - label: Medium
-    url: http://medium.com
+    url: https://medium.com/@marshateo/the-javascript-runtime-fixing-the-mental-model-75ccdc08aaca
+    label: Dev.to
+    url: https://dev.to/marshateo/the-javascript-runtime-fixing-the-mental-model-5f5b
 ---
 
 <p className="mt-4 text-sm text-neutral-500 italic">
