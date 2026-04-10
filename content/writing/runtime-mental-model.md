@@ -10,7 +10,7 @@ tech:
 links:
   - label: Medium
     url: https://medium.com/@marshateo/the-javascript-runtime-fixing-the-mental-model-75ccdc08aaca
-    label: Dev.to
+  - label: Dev.to
     url: https://dev.to/marshateo/the-javascript-runtime-fixing-the-mental-model-5f5b
 ---
 
