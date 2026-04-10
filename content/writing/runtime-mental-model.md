@@ -59,6 +59,12 @@ As this series will make clear, asynchronous mechanisms do not block nor interru
 For now, let's test the claim directly:
 > Can asynchronous callbacks interrupt synchronous execution?
 
+## Running the Experiments
+
+You can run all code snippets in this series by pasting them into the browser console.
+
+While some examples work in Node.js, others rely on browser APIs (like rendering or `requestAnimationFrame`), so the browser is the most reliable environment.
+
 ## Baseline Case: Pure Synchronous Execution
 
 Let's start with a simple `for` loop:
