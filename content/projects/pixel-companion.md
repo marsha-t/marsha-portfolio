@@ -13,7 +13,7 @@ tech:
   - Browser storage
 links:
   - label: GitHub
-    url: https://github.com/marsha-t/youtube-pet-extension
+    url: https://github.com/marsha-t/youtube-companion-extension
   - label: Chrome Web Store
     url: https://chromewebstore.google.com/detail/pixel-companion-for-youtu/ihohooifllhonggmehbbkeajnfghoido
 team: 1
