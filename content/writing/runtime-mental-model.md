@@ -222,4 +222,4 @@ From this article, we have established:
 
 But if asynchronous callbacks don't interrupt running code, how and when are they allowed to run? What exactly is a 'task'? Where are these queues? Who decides what runs next?
 
-This is the subject of the next article. 
+This is the subject of the [next article](/writing/macrotasks). 

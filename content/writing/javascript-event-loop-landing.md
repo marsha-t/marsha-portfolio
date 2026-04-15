@@ -41,6 +41,7 @@ From there, we layer in:
 * what this means for **real UI code**. 
 
 </div>
+
 ## Who this is for
 
 This series is for you if you’ve ever felt that JavaScript async behavior is:
@@ -73,7 +74,7 @@ Read it [here](runtime-mental-model).
 
 If nothing can interrupt JavaScript, when does anything else run? This article reframes tasks as entry points into execution, not chunks of work.
 
-_Coming soon_
+Read it [here](macrotasks). 
 
 **3) Microtasks: Why Promises Run First**
 
