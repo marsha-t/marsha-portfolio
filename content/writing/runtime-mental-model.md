@@ -2,6 +2,7 @@
 title: "The JavaScript Runtime: Fixing the Mental Model"
 summary: "Why doesn’t setTimeout interrupt your code? This article breaks the illusion: JavaScript runs synchronously, and async APIs don’t interrupt. Instead, they schedule."
 date: "2026-04-06"
+order: 2
 year: 2026
 featured: true
 image: "/sunrise-default.svg"

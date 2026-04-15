@@ -24,6 +24,7 @@ export interface ContentMeta {
   title: string;
   summary: string;
   date: string;
+  order?: number;
   year: number;
   timeframe?: string;
   featured: boolean;
@@ -61,7 +62,7 @@ function getContentDirectory(type: ContentType) {
  * Get metadata for all content entries
  * Reads all markdown files in given directory
  * Extract frontmatter with matter
- * Sort newest first
+ * Sort newest first (if same date, sort use 'order')
  * @returns Array of metadata + slug
  */
 export function getAllContentMeta(type: ContentType): ContentItem[] {
@@ -81,7 +82,9 @@ export function getAllContentMeta(type: ContentType): ContentItem[] {
   });
 
   return allContent.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
+    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateDiff !== 0) return dateDiff
+    return (b.order ?? 0) - (a.order ?? 0);
   });
 }
 
@@ -194,6 +197,10 @@ function validateMeta(data: any): ContentMeta {
     }
   }
 
+  if (data.order && typeof data.order !== "number") {
+    throw new Error("Frontmatter 'order' must be a number");
+  }
+
   if (data.imagePosition && typeof data.imagePosition !== "string") {
     throw new Error("Frontmatter 'imagePosition' must be a string");
   }
@@ -228,6 +235,7 @@ function validateMeta(data: any): ContentMeta {
     title: data.title,
     summary: data.summary,
     date: data.date,
+    order: data.order,
     year: data.year,
     timeframe: data.timeframe,
     featured: data.featured,
