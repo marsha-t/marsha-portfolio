@@ -7,11 +7,11 @@ featured: true
 image: "/sunrise-default.svg"
 tech: 
   - JavaScript
-# links:
-#   - label: Medium
-#     url: https://medium.com/@marshateo/the-javascript-runtime-fixing-the-mental-model-75ccdc08aaca
-#   - label: Dev.to
-#     url: https://dev.to/marshateo/the-javascript-runtime-fixing-the-mental-model-5f5b
+links:
+  - label: Medium
+    url: https://medium.com/@marshateo/macrotasks-what-a-task-actually-is-e194ee84859f
+  - label: Dev.to
+    url: https://dev.to/marshateo/macrotasks-what-a-task-actually-is-4pbd
 ---
 
 <p className="mt-4 text-sm text-neutral-500 italic">
@@ -33,6 +33,8 @@ This explains why timers don't cut in, why promises wait and why loops block eve
 
 This article exists to answer more precisely:
 > What exactly is a task?
+
+</div>
 
 ## The Wrong Mental Model of a Task
 
@@ -214,7 +216,7 @@ Control never returns to `a: after b` or `global: after a` after the exception w
 
 ## Test 4: User Events Do Not Interrupt
 
-Let's test something external: user input:
+Now let's introduce an external event: a user click. 
 
 ```javascript
 document.addEventListener("click", () => {
@@ -286,4 +288,4 @@ Should it wait behind the other tasks in the queue? (But this would delay it unp
 
 Neither is ideal. Instead, JavaScript has a mechanism that does not interrupt the current macrotask but runs **before** the runtime selects the next macrotask. This mechanism is **microtasks**.
 
-This is where we go next. 
+This is where we go [next](/writing/microtasks). 

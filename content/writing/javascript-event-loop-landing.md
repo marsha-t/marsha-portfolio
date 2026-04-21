@@ -81,7 +81,7 @@ Read it [here](macrotasks).
 
 Why do Promises always run before `setTimeout`? This article reveals microtasks as mandatory continuations that must run before JavaScript moves on.
 
-_Coming soon_
+Read it [here](microtasks). 
 
 **4) `async` / `await`: Pausing Functions Without Pausing the World**
 
