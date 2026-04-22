@@ -5,6 +5,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #f9fafb;
+}
+
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #9ca3af;
+  --border: #2a2a2a;
+  --card: #121212;
 }
 
 @theme inline {
@@ -73,7 +84,8 @@ body {
 
 .prose figcaption {
   font-size: 0.85rem;
-  color: #6b7280;
+  /* color: #6b7280; */
+  color: var(--muted);
   margin-top: 0.5rem;
 }
 
