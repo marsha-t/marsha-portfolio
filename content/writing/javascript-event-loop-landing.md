@@ -65,7 +65,7 @@ Each article builds on the previous one. You *can* jump around, but the payoff i
 
 Here’s how the model unfolds:
 
-**1) Before the Event Loop: What Actually Runs JavaScript**
+**1) The JavaScript Runtime: Fixing the Mental Model**
 
 Why doesn’t `setTimeout` interrupt your code? This article breaks the illusion: JavaScript runs synchronously, and async APIs don’t interrupt. Instead, they schedule.
 

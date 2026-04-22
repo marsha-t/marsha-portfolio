@@ -13,8 +13,11 @@ export const metadata = {
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
-  colorScheme: "light",
 };
+
+export const viewport = {
+  colorScheme: "light",
+}
 
 export default function RootLayout({
   children,
