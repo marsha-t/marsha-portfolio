@@ -14,10 +14,10 @@ tech:
 #     url: https://dev.to/marshateo/
 ---
 
-<p className="mt-4 text-sm text-neutral-500 italic">
+<p className="mt-4 text-sm text-[var(--text-subtle)] italic">
   This article is part of a series on the JavaScript event loop.
-  <a href="/writing/javascript-event-loop-landing" className="underline hover:text-neutral-700">
-    View all articles →
+  <a className="underline text-[var(--text-subtle)] hover:text-[var(--text-hover)]" href="/writing/javascript-event-loop-landing">
+    View all articles
   </a>
 </p>
 

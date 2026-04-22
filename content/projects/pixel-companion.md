@@ -60,7 +60,7 @@ A friend (Jonathan) watches a lot of YouTube and is always trying to convince th
 
   <div>
     <h3 class="text-lg font-semibold">Reacts to video completion</h3>
-    <p class="mt-2 text-neutral-600">
+    <p class="mt-2 text-[var(--text-secondary)]">
       When a video ends, the extension detects the <code>ended</code> event and updates the companion’s state in real time. 
       The avatar changes expression based on viewing activity, reinforcing a sense of continuity across sessions.
     </p>
@@ -73,7 +73,7 @@ A friend (Jonathan) watches a lot of YouTube and is always trying to convince th
     
   <div>
     <h3 class="text-lg font-semibold">Customisable companion</h3>
-    <p class="mt-2 text-neutral-600">
+    <p class="mt-2 text-[var(--text-secondary)]">
       Users can personalise the appearance of the companion. Preferences are stored in 
       <code>chrome.storage</code> and automatically applied whenever the overlay is rendered.
     </p>

@@ -34,7 +34,7 @@ export default function Sidebar({ headings, meta, triggerId }: SidebarProps) {
       {showMeta && meta && (
         <div className="space-y-6">
           {meta}
-          <div className="border-t border-neutral-200"></div>
+          <div className="border-t border-[var(--border-default)]"></div>
         </div>
       )}
 

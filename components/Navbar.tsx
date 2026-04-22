@@ -23,22 +23,35 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--background)] border-b border-[var(--border)]">
-      <div className="max-w-3xl mx-auto flex justify-center items-center gap-8 py-4 text-sm text-neutral-500">
+    <nav className="sticky top-0 z-50 bg-[var(--bg-primary)] border-b border-[var(--border-accent)]">
+      <div className="max-w-3xl mx-auto flex justify-center items-center gap-8 py-4 text-sm text-[var(--text-muted)]">
         {/* links */}
-        <div className="flex gap-8 mx-auto text-neutral-500">
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/writing">Writing</Link>
-          <Link href="/about">About</Link>
+        <div className="flex gap-8 mx-auto">
+          <Link
+            className="hover:text-[var(--text-hover)] hover:underline underline-offset-2 transition-colors"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="hover:text-[var(--text-hover)] hover:underline underline-offset-2 transition-colors"
+            href="/projects"
+          >
+            Projects
+          </Link>
+          <Link 
+            className="hover:text-[var(--text-hover)] hover:underline underline-offset-2 transition-colors"
+          href="/writing">Writing</Link>
+          <Link 
+            className="hover:text-[var(--text-hover)] hover:underline underline-offset-2 transition-colors"
+          href="/about">About</Link>
         </div>
 
         {/* toggle */}
         <button
           onClick={toggleTheme}
           className="group absolute right-6 
-            text-[var(--muted)] hover:text-[var(--foreground)] transition 
-            p-2 rounded-md hover:bg-[var(--card)]"
+            p-2 rounded-md hover:bg-[var(--bg-secondary)]"
         >
           <div className="relative w-6 h-6  transition-colors duration-500 ease-in-out">
             <Sun
@@ -59,24 +72,5 @@ export default function Navbar() {
         </button>
       </div>
     </nav>
-    // <nav className="sticky top-0 z-50 bg-white border-b border-sky-200/50">
-    // <div className="max-w-3xl mx-auto flex justify-center gap-8 py-4 text-sm text-neutral-500">
-    //   <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/">
-    //     Home
-    //   </Link>
-    //   <Link
-    //     className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors"
-    //     href="/projects"
-    //   >
-    //     Projects
-    //   </Link>
-    //   <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/writing">
-    //     Writing
-    //   </Link>
-    //   <Link className="hover:text-slate-800 hover:underline underline-offset-2 transition-colors" href="/about">
-    //     About
-    //   </Link>
-    // </div>
-    // </nav>
   );
 }

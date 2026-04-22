@@ -3,31 +3,108 @@
 @import "highlight.js/styles/github.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --card: #f9fafb;
+  --white: 255 255 255;
+
+  --neutral-50: 250 250 250;
+  --neutral-100: 245 245 245;
+  --neutral-200: 229 229 229;
+  --neutral-300: 212 212 212;
+  --neutral-400: 163 163 163;
+  --neutral-500: 115 115 115;
+  --neutral-600: 82 82 82;
+  --neutral-700: 64 64 64;
+  --neutral-900: 23 23 23;
+
+  --sky-200: 186 230 253;
+  --sky-300: 125 211 252;
+  
+  /*Text*/
+  --text-hero-primary: rgb(var(--neutral-900));
+  --text-hero-secondary: rgb(var(--neutral-700));
+  --text-primary: rgb(var(--neutral-900));   /* main headings */
+  --text-secondary: rgb(var(--neutral-700)); /* body text */
+  --text-muted: rgb(var(--neutral-600));     /* less emphasis */
+  --text-subtle: rgb(var(--neutral-500));    /* metadata */
+  --text-faint: rgb(var(--neutral-400));     /* very light */
+
+  /* Borders */
+  --border-default: rgb(var(--neutral-200));
+  --border-accent: rgb(var(--sky-200) / 0.5);
+  --border-accent-strong: rgb(var(--sky-300));
+
+  /*Code Snippets*/
+  --code-text: rgb(var(--neutral-900));
+  --code-inline-bg: rgb(var(--neutral-100));
+  --code-btn-bg: rgb(var(--neutral-200));
+  --code-btn-bg-hover: rgb(var(--neutral-300));
+  
+  /*Backgrounds*/
+  --bg-primary: rgb(var(--white));
+  --bg-secondary: rgb(var(--neutral-50));
+  --bg-secondary-hover: rgb(var(--neutral-100));
+
+  /* Glass */
+  --surface-glass: rgb(var(--white) / 0.2);
+  --surface-glass-hover: rgb(var(--white) / 0.3);
+  --border-glass: rgb(var(--white) / 0.3);
+
+  /* Interactive  */
+  --text-hover: rgb(var(--neutral-900));
 }
 
 [data-theme="dark"] {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: #9ca3af;
-  --border: #2a2a2a;
-  --card: #121212;
-}
+  --white: 20 20 20;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --neutral-50: 23 23 23;
+  --neutral-100: 40 40 40;
+  --neutral-200: 70 70 70;
+  --neutral-300: 100 100 100;
+  --neutral-400: 135 135 135;
+  --neutral-500: 165 165 165;
+  --neutral-600: 185 185 185;
+  --neutral-700: 205 205 205;
+  --neutral-900: 230 230 230;
+
+  --sky-200: 253 186 116;
+  --sky-300: 251 146 60;
+
+  /* Text */
+  --text-hero-primary: 240 235 230;
+  --text-hero-secondary: 215 205 195;
+  --text-primary: rgb(var(--neutral-900));   
+  --text-secondary: rgb(var(--neutral-700));
+  --text-muted: rgb(var(--neutral-600));
+  --text-subtle: rgb(var(--neutral-500));
+  --text-faint: rgb(var(--neutral-400));
+
+  /* Borders */
+  --border-default: rgb(var(--neutral-200));
+  --border-accent: rgb(var(--sky-200) / 0.25);
+  --border-accent-strong: rgb(var(--sky-300));
+
+  /* Code */
+  --code-text: rgb(var(--neutral-900));
+  --code-inline-bg: rgb(var(--neutral-100));
+  --code-btn-bg: rgb(var(--neutral-200));
+  --code-btn-bg-hover: rgb(var(--neutral-300));
+
+  /* Backgrounds */
+  --bg-primary: rgb(var(--white));
+  --bg-secondary: rgb(var(--neutral-50));
+  --bg-secondary-hover: rgb(var(--neutral-100));
+
+  /* Glass */
+  --surface-glass: rgb(255 255 255 / 0.05);
+  --surface-glass-hover: rgb(255 255 255 / 0.08);
+  --border-glass: rgb(255 255 255 / 0.1);
+
+  /* Interactive */
+  --text-hover: rgb(var(--neutral-900));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -77,6 +154,46 @@ body {
   opacity: 0.25;
 }
 
+@layer components {
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    color: var(--text-primary);
+  }
+
+  .prose p {
+    color: var(--text-secondary);
+  }
+
+  .prose strong {
+    color: var(--text-primary);
+  }
+
+  .prose li {
+    color: var(--text-secondary);
+  }
+
+  .prose a {
+    color: var(--text-primary);
+    text-decoration: underline;
+  }
+
+  .prose code {
+    color: var(--code-text);
+    background: var(--code-inline-bg);
+  }
+
+  .prose blockquote {
+    color: var(--text-muted);
+    border-left-color: var(--border-accent);
+  }
+}
+
 .prose figure {
   margin: 2rem auto;
   text-align: center;
@@ -84,7 +201,6 @@ body {
 
 .prose figcaption {
   font-size: 0.85rem;
-  /* color: #6b7280; */
   color: var(--muted);
   margin-top: 0.5rem;
 }

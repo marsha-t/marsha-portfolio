@@ -40,14 +40,14 @@ export default function ProjectsPage() {
   return (
     <main className="max-w-5xl mx-auto py-20 px-6">
       {/* Page title */}
-      <h1 className="text-4xl font-bold mb-4">Projects</h1>
-      <p className="mt-3 mb-8 text-neutral-600 max-w-2xl ">
+      <h1 className="text-4xl font-bold mb-4 text-[var(--text-primary)]">Projects</h1>
+      <p className="mt-3 mb-8 text-[var(--text-muted)] max-w-2xl ">
         A collection of things I’ve built
       </p>
 
       {/* Featured */}
       <section className="mb-24">
-        <h2 className="text-2xl font-semibold mb-10">Featured</h2>
+        <h2 className="text-2xl font-semibold mb-10 text-[var(--text-primary)]">Featured</h2>
 
         <div className="grid gap-12">
           {featured.map((project) => (
@@ -67,13 +67,13 @@ export default function ProjectsPage() {
 
       {/* Timeline */}
       <div className="max-w-5xl mx-auto px-6 my-20">
-        <div className="h-px bg-sky-200/50" />
+        <div className="h-px bg-[var(--border-accent)]" />
       </div>
       <section>
-        <h2 className="text-2xl font-semibold mb-10">All Projects</h2>
+        <h2 className="text-2xl font-semibold mb-10 text-[var(--text-primary)]">All Projects</h2>
 
         <div className="relative  space-y-20">
-          <div className="absolute left-2 top-0 bottom-0 w-px bg-sky-200/50" />
+          <div className="absolute left-2 top-0 bottom-0 w-px bg-[var(--border-accent)]" />
           {sortedYears.map((year) => (
             <div key={year} className="relative pl-8">
               
@@ -83,7 +83,7 @@ export default function ProjectsPage() {
                 absolute left-2 top-1
                 w-2.5 h-2.5
                 -translate-x-1/2
-                bg-sky-300/70
+                bg-[var(--border-accent-strong)]
                 rounded-full
               "
               />

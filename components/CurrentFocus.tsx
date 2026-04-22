@@ -19,13 +19,13 @@ export default function CurrentFocus() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-24">
-      <h2 className="text-3xl font-semibold mb-12">Current Focus</h2>
+      <h2 className="text-3xl font-semibold mb-12 text-[var(--text-primary)]">Current Focus</h2>
 
       <div className="grid md:grid-cols-3 gap-12">
         {focus.map((item, i) => (
           <div key={i}>
-            <h3 className="text-lg font-medium mb-3">{item.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-lg font-medium mb-3 text-[var(--text-primary)]">{item.title}</h3>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed">
               {item.description}
             </p>
           </div>

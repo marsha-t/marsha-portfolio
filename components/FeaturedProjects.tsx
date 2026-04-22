@@ -13,16 +13,11 @@ export default function FeaturedProjects() {
     .filter(Boolean);
 
   return (
-    <section className="relative py-28 px-6 bg-gradient-to-b from-white via-sky-50/40 to-white">
-      {/* glow */}
-      <div className="absolute inset-0 pointer-events-none flex justify-center">
-        <div className="w-[900px] h-[500px] bg-sky-200/20 blur-3xl rounded-full mt-24" />
-      </div>
-
+    <section className="relative py-28 px-6 ">
       <div className="relative max-w-5xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-4">Featured Projects</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-[var(--text-primary)]">Featured Projects</h2>
 
-        <p className="text-neutral-600 mb-14">
+        <p className="text-[var(--text-muted)] mb-14">
           Selected projects exploring data, software and how things work
         </p>
 
@@ -47,8 +42,8 @@ export default function FeaturedProjects() {
             className="
               group block
               rounded-2xl
-              border border-neutral-200
-              bg-white/70 backdrop-blur-sm
+              border border-[var(--border-default)]
+              bg-[var(--bg-primary)] backdrop-blur-sm
               p-10
               transition-all duration-300
               hover:-translate-y-1 hover:shadow-lg
@@ -65,12 +60,12 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Title */}
-              <div className="font-semibold text-neutral-900">
+              <div className="font-semibold text-[var(--text-primary)]">
                 More Projects
               </div>
 
               {/* Subtitle */}
-              <p className="text-sm text-neutral-500 mt-1">
+              <p className="text-sm text-[var(--text-muted)] mt-1">
                 Explore all my work
               </p>
             </div>

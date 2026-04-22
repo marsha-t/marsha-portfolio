@@ -15,12 +15,12 @@ export default function CopyEmail({ email }: { email: string }) {
     <>
       <button
         onClick={handleCopy}
-        className="underline hover:no-underline transition"
+        className="underline hover:no-underline transition text-[var(--text-subtle)]"
       >
         {email}
       </button>
 
-      <span className="text-neutral-400 text-sm ml-2">
+      <span className="text-[var(--text-faint)] text-sm ml-2">
         {copied ? "Copied" : "Click to copy"}
       </span>
     </>
