@@ -1,6 +1,7 @@
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import HighlightTheme from "@/components/HighlightTheme";
 
 export const metadata = {
   title: {
@@ -15,18 +16,34 @@ export const metadata = {
   },
 };
 
-export const viewport = {
-  colorScheme: "light",
-}
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const saved = localStorage.getItem("theme");
+                  if (saved) {
+                    document.documentElement.setAttribute("data-theme", saved);
+                  } else {
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+                  }
+                } catch (e) {}
+              })();
+              `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
+        <HighlightTheme />
         <Navbar />
           <main className="flex-1">
             {children}
