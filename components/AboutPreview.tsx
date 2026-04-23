@@ -18,7 +18,7 @@ export default function AboutPreview() {
 
       <Link
         href="/about"
-        className="text-sm underline underline-offset-4 hover:opacity-70"
+        className="text-sm underline underline-offset-4 hover:opacity-70 text-[var(--text-primary)]"
       >
         Read more →
       </Link>

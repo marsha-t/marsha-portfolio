@@ -104,7 +104,7 @@ export default function ProjectCard({
             ))}
           </div>
 
-          <div className="mt-auto pt-5 text-sm font-medium text-sky-600">
+          <div className="mt-auto pt-5 text-sm font-medium text-[var(--text-primary)] underline">
             View project →
           </div>
         </div>

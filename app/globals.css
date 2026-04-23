@@ -2,6 +2,8 @@
 @plugin "@tailwindcss/typography";
 @import "highlight.js/styles/github-dark.css";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Tokens -------------------------------------------------------------------------- */
 :root {
   --white: 255 255 255;
@@ -18,15 +20,15 @@
 
   --sky-200: 186 230 253;
   --sky-300: 125 211 252;
-  
+
   /*Text*/
   --text-hero-primary: rgb(var(--neutral-900));
   --text-hero-secondary: rgb(var(--neutral-700));
-  --text-primary: rgb(var(--neutral-900));   /* main headings */
+  --text-primary: rgb(var(--neutral-900)); /* main headings */
   --text-secondary: rgb(var(--neutral-700)); /* body text */
-  --text-muted: rgb(var(--neutral-600));     /* less emphasis */
-  --text-subtle: rgb(var(--neutral-500));    /* metadata */
-  --text-faint: rgb(var(--neutral-400));     /* very light */
+  --text-muted: rgb(var(--neutral-600)); /* less emphasis */
+  --text-subtle: rgb(var(--neutral-500)); /* metadata */
+  --text-faint: rgb(var(--neutral-400)); /* very light */
 
   /* Borders */
   --border-default: rgb(var(--neutral-200));
@@ -38,7 +40,7 @@
   --code-inline-bg: rgb(var(--neutral-100));
   --code-btn-bg: rgb(var(--neutral-200));
   --code-btn-bg-hover: rgb(var(--neutral-300));
-  
+
   /*Backgrounds*/
   --bg-primary: rgb(var(--white));
   --bg-secondary: rgb(var(--neutral-50));
@@ -70,9 +72,9 @@
   --sky-300: 251 146 60;
 
   /* Text */
-  --text-hero-primary: 240 235 230;
-  --text-hero-secondary: 215 205 195;
-  --text-primary: rgb(var(--neutral-900));   
+  --text-hero-primary: rgb(60 50 45);
+  --text-hero-secondary: rgb(100 85 75);
+  --text-primary: rgb(var(--neutral-900));
   --text-secondary: rgb(var(--neutral-700));
   --text-muted: rgb(var(--neutral-600));
   --text-subtle: rgb(var(--neutral-500));
@@ -189,4 +191,3 @@ body {
   font-family: var(--font-mono);
   opacity: 0.85;
 }
-

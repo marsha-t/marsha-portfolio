@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
-import { useTheme } from "@/hooks/usetheme";
 
 /**
  * Hero section for the homepage
@@ -12,23 +11,32 @@ import { useTheme } from "@/hooks/usetheme";
  */
 
 export default function Hero() {
-  const theme = useTheme();
-  const imageSrc = theme === "dark" ? "/sunset-no-text.svg" : "/sunrise-no-text.svg";
-
   return (
     <section className="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <Image
-        src={imageSrc}
-        alt="Hero illustration"
-        fill
-        priority
-        className="object-cover scale-110 sm:scale-100"
-      />
+
+      <div className="absolute inset-0 block dark:hidden">
+        <Image
+          src="/sunrise-no-text.svg"
+          alt="Sunrise illustration"
+          fill
+          priority
+          className="object-cover scale-110 sm:scale-100 "
+        />
+      </div>
+
+      <div className="absolute inset-0 hidden dark:block">
+        <Image
+          src="/sunset-no-text.svg"
+          alt="Sunset illustration"
+          fill
+          priority
+          className="object-cover scale-110 sm:scale-100 "
+        />
+      </div>
 
       {/* Overlay content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 gap-4 sm:gap-6 max-w-xl">
-
         {/* Name */}
         <h1 className="font-semibold tracking-tight text-[var(--text-hero-primary)] drop-shadow-md text-4xl sm:text-5xl md:text-6xl">
           Marsha Teo
