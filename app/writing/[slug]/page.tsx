@@ -36,8 +36,8 @@ export default async function WritingPage({
     <main className="max-w-6xl mx-auto py-16 px-6">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-12">
         <div>
-          <div className="flex items-center justify-between text-sm text-neutral-400 mb-6">
-            <a href="/writing" className="hover:text-neutral-700">
+          <div className="flex items-center justify-between text-sm text-[var(--text-faint)] mb-6">
+            <a href="/writing" className="hover:text-[var(--text-hover)]">
               ← Back to Writing
             </a>
 
@@ -76,15 +76,15 @@ export default async function WritingPage({
               prose-img:rounded-lg
               prose-img:mx-auto
 
-              prose-pre:bg-neutral-50
-              prose-pre:text-neutral-900
-              prose-pre:border-neutral-200
+              prose-pre:bg-[var(--bg-bg)]
+              prose-pre:text-[var(--code-text)]
+              prose-pre:border-[var(--border-default)]
               prose-pre:rounded-xl
               prose-pre:px-5
               prose-pre:py-4
               prose-pre:border
 
-              prose-code:bg-neutral-100
+              prose-code:bg-[var(--code-inline-bg)]
               prose-code:px-1.5
               prose-code:rounded
               prose-code:text-sm
@@ -97,8 +97,6 @@ export default async function WritingPage({
               prose-headings:code:font-inherit
               prose-headings:code:text-[inherit]
               prose-headings:code:text-base
-
-              
           "
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
@@ -111,8 +109,8 @@ export default async function WritingPage({
               <>
                 {post.links && post.links.length > 0 && (
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-neutral-400 mb-2">
-                      Also published on
+                    <div className="text-xs uppercase tracking-wide text-[var(--text-faint)] mb-2">
+                      Also Published On
                     </div>
 
                     <ul className="space-y-1">
@@ -122,7 +120,7 @@ export default async function WritingPage({
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-neutral-600 hover:text-neutral-900 underline"
+                            className="text-[var(--text-muted)] hover:text-[var(--text-hover)] underline"
                           >
                             {link.label}
                           </a>
@@ -134,36 +132,6 @@ export default async function WritingPage({
               </>
             }
           />
-          {/* {<div className="sticky top-24 space-y-4"> */}
-
-          {/* Cross-posted links */}
-          {/* {post.links && post.links.length > 0 && (
-              <div className="text-sm">
-                <div className="text-neutral-900">
-                  Also published on
-                </div>
-
-                <ul className="mt-1 space-y-1 list-disc list-inside">
-                  {post.links.map((link) => (
-                    <li key={link.url}>
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-neutral-600 hover:text-neutral-900 underline"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <div className="border-t border-neutral-200"></div>
-
-            <TableOfContents headings={post.headings} /> */}
-          {/* </div> } */}
         </aside>
       </div>
       <CodeEnhancer />

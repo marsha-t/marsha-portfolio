@@ -19,28 +19,27 @@ export default function Contact() {
   return (
     <section className="relative py-28 px-6 overflow-hidden">
       <div className="relative max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
-        <p className="text-gray-600 mb-12">
+        <h2 className="text-3xl font-semibold mb-6 text-[var(--text-primary)]">Get in Touch</h2>
+        <p className="text-[var(--text-secondary)] mb-12">
           If you'd like to collaborate, discuss a project, or just say hello
         </p>
         <button
           onClick={copyEmail}
           className="
-            border border-gray-200
+            border border-[var(--border-default)]
             px-8 py-4
             rounded-xl
-            text-lg font-medium
-            bg-white/70
+            text-lg font-medium text-[var(--text-secondary)]
+            bg-[var(--bg-secondary)]
             backdrop-blur-sm
             transition-all duration-200
-            hover:border-gray-400
-            hover:shadow-md
+            hover:bg-[var(--bg-secondary-hover)]
             active:scale-95
           "
         >
           {email}
         </button>
-        <p className="text-sm text-gray-500 mt-4 transition-all duration-200">
+        <p className="text-sm text-[var(--text-subtle)] mt-4 transition-all duration-200">
           {copied ? "✓ Copied!" : "Click to copy"}
         </p>
       </div>

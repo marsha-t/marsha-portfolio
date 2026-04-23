@@ -34,12 +34,12 @@ export default function ProjectCard({
     <Link href={href} className={`group block ${className}`}>
       <div
         className="
-        bg-white/70
+        bg-[var(--bg-primary)]
         backdrop-blur-sm
         rounded-2xl
         overflow-hidden
         shadow-sm
-        border border-neutral-200
+        border border-[var(--border-default)]
         transition-all
         duration-300
         hover:-translate-y-1
@@ -77,11 +77,11 @@ export default function ProjectCard({
 
         {/* Content */}
         <div className="p-7 flex flex-col flex-1">
-          <h3 className={`${titleSize} font-semibold text-neutral-900`}>
+          <h3 className={`${titleSize} font-semibold text-[var(--text-primary)]`}>
             {title} 
           </h3>
 
-          <p className="text-neutral-600 mt-2 leading-relaxed text-sm line-clamp-3">
+          <p className="text-[var(--text-muted)] mt-2 leading-relaxed text-sm line-clamp-3">
             {description}
           </p>
 
@@ -92,8 +92,8 @@ export default function ProjectCard({
                 key={t}
                 className="
                 text-xs
-                bg-neutral-100
-                text-neutral-700
+                bg-[var(--bg-secondary)]
+                text-[var(--text-secondary)]
                 px-3
                 py-1
                 rounded-full

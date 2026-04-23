@@ -46,7 +46,7 @@ export default function CodeEnhancer() {
         return (
           <button
             onClick={handleClick}
-            className="p-1.5 rounded-md bg-neutral-200 hover:bg-neutral-300 text-neutral-700"
+            className="p-1.5 rounded-md bg-[var(--code-btn-bg)] hover:bg-[var(--code-btn-bg-hover)] text-[var(--text-secondary)]"
           >
             {copied ? <Check size={16} /> : <Copy size={16} />}
           </button>

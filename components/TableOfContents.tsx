@@ -34,7 +34,9 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
 
   return (
     <div className="space-y-2">
-      <div className="font-medium text-neutral-900">On this page</div>
+      <div className="text-xs uppercase tracking-wide text-[var(--text-faint)] mb-2">
+        On this page
+      </div>
 
       <ul className="space-y-1 text-sm">
         {headings.map((heading) => (
@@ -43,8 +45,8 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
               href={`#${heading.id}`}
               className={`block pl-3 border-l-2 transition-colors ${
                 activeId === heading.id
-                  ? "border-neutral-900 text-neutral-900 font-medium"
-                  : "border-transparent text-neutral-500 hover:text-neutral-900"
+                  ? "border-[var(--text-primary)] text-[var(--text-primary)] font-medium"
+                  : "border-transparent text-[var(--text-muted)] hover:text-[var(--text-hover)]"
               }`}
             >
               {heading.text}

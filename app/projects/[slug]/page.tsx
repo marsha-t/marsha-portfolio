@@ -58,25 +58,48 @@ export default async function ProjectPage({
 
             prose-img:rounded-lg
             prose-img:mx-auto
+            
+            prose-pre:bg-[var(--bg-bg)]
+            prose-pre:text-[var(--code-text)]
+            prose-pre:border-[var(--border-default)]
+            prose-pre:rounded-xl
+            prose-pre:px-5
+            prose-pre:py-4
+            prose-pre:border
 
-            prose-pre:bg-neutral-900
-            prose-pre:text-neutral-100
+            prose-code:bg-[var(--code-inline-bg)]
+            prose-code:px-1.5
+            prose-code:rounded
+            prose-code:text-sm
+            prose-code:before:content-none
+            prose-code:after:content-none
+            
+            prose-pre:code:bg-transparent
+
+            prose-headings:code:bg-transparent
+            prose-headings:code:font-inherit
+            prose-headings:code:text-[inherit]
+            prose-headings:code:text-base
           "
           dangerouslySetInnerHTML={{ __html: project.contentHtml }}
         />
-        
+
         <aside className="hidden lg:block">
           <Sidebar
             headings={project.headings}
             meta={
               <>
                 {project.timeframe && (
-                  <div className="text-neutral-600">{project.timeframe}</div>
+                  <div className="text-[var(--text-muted)]">
+                    {project.timeframe}
+                  </div>
                 )}
 
                 {project.links && project.links.length > 0 && (
                   <div>
-                    <div className="text-neutral-900">Links</div>
+                    <div className="text-[var(--text-primary)]">
+                      Links
+                      </div>
                     <ul className="mt-1 space-y-1 list-disc list-inside">
                       {project.links.map((link: any) => (
                         <li key={link.url}>
@@ -84,7 +107,7 @@ export default async function ProjectPage({
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-neutral-600 hover:text-neutral-900 underline"
+                            className="text-[var(--text-muted)] hover:text-[var(--text-hover)] underline"
                           >
                             {link.label}
                           </a>
@@ -95,8 +118,10 @@ export default async function ProjectPage({
                 )}
 
                 <div>
-                  <div className="font-medium text-neutral-900">Tech</div>
-                  <ul className="mt-1 list-disc list-inside text-neutral-600 space-y-1">
+                  <div className="font-medium text-[var(--text-primary)]">
+                    Tech
+                  </div>
+                  <ul className="mt-1 list-disc list-inside text-[var(--text-muted)] space-y-1">
                     {project.tech.map((tech: string) => (
                       <li key={tech}>{tech}</li>
                     ))}
@@ -104,8 +129,10 @@ export default async function ProjectPage({
                 </div>
 
                 {project.team && project.team > 1 && (
-                  <div className="text-neutral-600">
-                    <span className="font-medium text-neutral-900">Team:</span>{" "}
+                  <div className="text-[var(--text-muted)]">
+                    <span className="font-medium text-[var(--text-muted)]">
+                      Team:
+                    </span>{" "}
                     {project.team}
                   </div>
                 )}

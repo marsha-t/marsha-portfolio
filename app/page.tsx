@@ -14,15 +14,15 @@ export default function HomePage() {
       <Hero />
       <FeaturedProjects />
       <div className="max-w-5xl mx-auto px-6 my-20">
-        <div className="h-px bg-sky-200/50" />
+        <div className="h-px bg-[var(--border-accent)]" />
       </div>
       <CurrentFocus />
       <div className="max-w-5xl mx-auto px-6 my-20">
-        <div className="h-px bg-sky-200/50" />
+        <div className="h-px bg-[var(--border-accent)]" />
       </div>
       <AboutPreview />
       <div className="max-w-5xl mx-auto px-6 my-20">
-        <div className="h-px bg-sky-200/50" />
+        <div className="h-px bg-[var(--border-accent)]" />
       </div>
       <Contact />
     </>
