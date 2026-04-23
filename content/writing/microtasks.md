@@ -7,11 +7,11 @@ featured: true
 image: "/sunrise-default.svg"
 tech: 
   - JavaScript
-# links:
-#   - label: Medium
-#     url: https://medium.com/@marshateo/
-#   - label: Dev.to
-#     url: https://dev.to/marshateo/
+links:
+  - label: Medium
+    url: https://medium.com/@marshateo/microtasks-why-promises-run-first-37fd5642daca
+  - label: Dev.to
+    url: https://dev.to/marshateo/microtasks-why-promises-run-first-4ba1
 ---
 
 <p className="mt-4 text-sm text-neutral-500 italic">
