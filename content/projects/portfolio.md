@@ -24,11 +24,20 @@ team: 1
 
 <div id="hero-image">
 
-<img 
-  src="/projects/portfolio/portfolio-hero.svg"
-  alt="Portfolio website hero section"
-  class="rounded-lg mx-auto "
-/>
+  <div className="block dark:hidden">
+    <img 
+    src="/projects/portfolio/portfolio-hero-light.svg"
+    alt="Portfolio website hero section"
+    class="rounded-lg mx-auto "
+    />
+  </div>
+  <div className="hidden dark:block">
+    <img 
+    src="/projects/portfolio/portfolio-hero-dark.svg"
+    alt="Portfolio website hero section"
+    class="rounded-lg mx-auto "
+    />
+  </div>
 
 </div>
 
@@ -71,7 +80,12 @@ Code blocks and technical content are rendered using a markdown pipeline that su
 ## Content System
 
 <figure>
-<img src="/projects/portfolio/content-system.svg" />
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
+    <img src="/projects/portfolio/content-system-light.svg" />
+  </div>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
+    <img src="/projects/portfolio/content-system-dark.svg" />
+  </div>
 
 <figcaption>
 Content pipeline converting markdown files into generated pages.

@@ -5,7 +5,8 @@ date: "2025-08-04"
 year: 2025
 timeframe: "May-Sep 2025"
 featured: true
-image: "/projects/webserv/hero.svg"
+image: "/projects/webserv/hero-light.svg"
+imageDark: "/projects/webserv/hero-dark.svg"
 imagePosition: "object-center"
 tech:
   - Systems Programming 
@@ -21,13 +22,20 @@ team: 2
 *Building a fully functional HTTP server from scratch using C++98 and POSIX sockets*
 
 <div id="hero-image">
-
-<img 
-  src="/projects/webserv/hero.svg"
-  alt="Webserv architecture diagram"
-  class="rounded-lg mx-auto "
-/>
-
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
+    <img 
+      src="/projects/webserv/hero-light.svg"
+      alt="Webserv architecture diagram"
+      class="rounded-lg mx-auto "
+    />
+  </div>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
+    <img 
+      src="/projects/webserv/hero-dark.svg"
+      alt="Webserv architecture diagram"
+      class="rounded-lg mx-auto "
+    />
+  </div>
 </div>
 
 ## Overview
@@ -75,11 +83,15 @@ This design allows the server to efficiently manage many concurrent connections 
 
 ## Architecture
 <figure>
-<img src="/projects/webserv/webserv-request-flow.svg" />
-
-<figcaption>
-Request lifecycle through the server.
-</figcaption>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
+    <img src="/projects/webserv/webserv-request-flow-light.svg" />
+  </div>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
+    <img src="/projects/webserv/webserv-request-flow-dark.svg" />
+  </div>
+  <figcaption>
+  Request lifecycle through the server.
+  </figcaption>
 </figure>
 
 The server architecture revolves around a central event loop that manages socket activity and request processing. 
@@ -101,19 +113,19 @@ Server behaviour is defined through configuration files that specify server port
 
 ## Demo
 Run the server:
-```
+```bash
 ./webserv config/default.conf
 ```
 
 Example requests:
-``` 
+``` bash
 curl http://localhost:8080
 curl -X POST http://localhost:8080/upload
 curl -X DELETE http://localhost:8080/file
 ```
 
 Basic stress testing can be performed with tools such as:
-```
+```bash
 siege -c 50 -r 10 http://localhost:8080
 ```
 

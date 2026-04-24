@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@import "highlight.js/styles/github-dark.css";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -132,7 +131,6 @@ body {
     --tw-prose-quote-borders: var(--border-accent);
 
     --tw-prose-code: var(--code-text);
-    --tw-prose-pre-bg: var(--code-inline-bg);
 
     --tw-prose-th-borders: var(--border-default);
     --tw-prose-td-borders: var(--border-default);
@@ -161,6 +159,14 @@ body {
 .prose figure {
   margin: 2rem auto;
   text-align: center;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+}
+
+[data-theme="dark"] .prose img {
+  filter: brightness(0.95) contrast(1.1);
 }
 
 .prose figcaption {

@@ -64,11 +64,15 @@ I focused on the game and tournament systems working across backend logic, real-
 ## Architecture
 
 <figure>
-<img src="/projects/transcendence/transcendence-architecture.svg" style="max-width: 800px; width: 100%; max-height: 700px; height: 100%"/>
-
-<figcaption>
-Microservices architecture with isolated services for gameplay, user management, and analytics.
-</figcaption>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
+    <img src="/projects/transcendence/transcendence-architecture-light.svg" style="max-width: 800px; width: 100%; max-height: 700px; height: 100%"/>
+  </div>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
+    <img src="/projects/transcendence/transcendence-architecture-dark.svg" style="max-width: 800px; width: 100%; max-height: 700px; height: 100%"/>
+  </div>
+  <figcaption>
+    Microservices architecture with isolated services for gameplay, user management, and analytics.
+  </figcaption>
 </figure>
 
 The system is designed as a containerised microservices architecture, where each service is responsible for a specific domain.

@@ -1,40 +1,51 @@
-<svg width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg">
-
+<svg class="diagram" width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" >
 <style>
+
+.diagram {
+  --box-fill: #ffffff;
+  --box-stroke: #374151;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --arrow: #111827;
+}
+
 .box {
-  fill: #f8fafc;
-  stroke: #cbd5e1;
+  fill: var(--box-fill);
+  stroke: var(--box-stroke);
   stroke-width: 1.5;
   rx: 8;
 }
 .text {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  font-size: 14px;
-  fill: #0f172a;
+  font-size: 16px;
+  font-weight: bold;
+  fill: var(--text-main);
   text-anchor: middle;
   dominant-baseline: middle;
 }
 .small {
-  font-size: 11px;
-  fill: #64748b;
+  font-weight: normal;
+  font-size: 16px;
+  fill: var(--text-muted);
 }
 .arrow {
-  stroke: #94a3b8;
+  stroke: var(--arrow);
   stroke-width: 2;
   marker-end: url(#arrowhead);
 }
+
 </style>
 
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-    <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    <polygon points="0 0, 10 3.5, 0 7" fill="var(--arrow)" />
   </marker>
 </defs>
 
 <!-- Client -->
 <rect x="20" y="80" width="120" height="60" class="box"/>
-<text x="80" y="105" class="text">Client</text>
-<text x="80" y="125" class="text small">(Browser)</text>
+<text x="80" y="100" class="text">Client</text>
+<text x="80" y="125" class="text small">Browser</text>
 
 <!-- Socket -->
 <rect x="200" y="80" width="140" height="60" class="box"/>
@@ -48,7 +59,7 @@
 
 <!-- Router -->
 <rect x="600" y="80" width="120" height="60" class="box"/>
-<text x="660" y="105" class="text">Router</text>
+<text x="660" y="100" class="text">Router</text>
 <text x="660" y="125" class="text small">config rules</text>
 
 <!-- Handler -->
@@ -61,9 +72,5 @@
 <line x1="340" y1="110" x2="400" y2="110" class="arrow"/>
 <line x1="540" y1="110" x2="600" y2="110" class="arrow"/>
 <line x1="720" y1="110" x2="780" y2="110" class="arrow"/>
-
-<!-- Labels -->
-<text x="170" y="70" class="small text">HTTP Request</text>
-<text x="720" y="70" class="small text">Route to handler</text>
 
 </svg>

@@ -121,7 +121,13 @@ To make the companion feel alive, small idle animations are triggered periodical
 ## Architecture
 
 <figure>
-<img src="/projects/pixel-companion/pixel-companion-architecture.svg" />
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
+    <img src="/projects/pixel-companion/pixel-companion-architecture-light.svg" />
+  </div>
+  <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
+    <img src="/projects/pixel-companion/pixel-companion-architecture-dark.svg" />
+  </div>
+
 
 <figcaption>
 High-level architecture

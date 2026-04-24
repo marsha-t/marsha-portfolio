@@ -29,6 +29,7 @@ export interface ContentMeta {
   timeframe?: string;
   featured: boolean;
   image: string;
+  imageDark?: string;
   imagePosition?: string;
   tech: string[];
   links?: ContentLink[];
@@ -201,6 +202,10 @@ function validateMeta(data: any): ContentMeta {
     throw new Error("Frontmatter 'order' must be a number");
   }
 
+  if (data.imageDark && typeof data.imageDark !== "string") {
+    throw new Error("Frontmatter 'imageDark' must be a string");
+  }
+
   if (data.imagePosition && typeof data.imagePosition !== "string") {
     throw new Error("Frontmatter 'imagePosition' must be a string");
   }
@@ -240,6 +245,7 @@ function validateMeta(data: any): ContentMeta {
     timeframe: data.timeframe,
     featured: data.featured,
     image: data.image,
+    imageDark: data.imageDark,
     imagePosition: data.imagePosition,
     tech: data.tech,
     links: data.links,

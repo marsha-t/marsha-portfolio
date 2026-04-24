@@ -5,6 +5,7 @@ type ProjectCardProps = {
   title: string;
   description: string;
   image: string;
+  imageDark?: string;
   imagePosition?: string;
   href: string;
   tech: string[];
@@ -16,6 +17,7 @@ export default function ProjectCard({
   title,
   description,
   image,
+  imageDark,
   imagePosition,
   href,
   tech,
@@ -29,7 +31,6 @@ export default function ProjectCard({
     variant === "featured" ? "text-2xl" : "text-lg";
   
     const position = imagePosition || "object-cover";
-
   return (
     <Link href={href} className={`group block ${className}`}>
       <div
@@ -61,9 +62,26 @@ export default function ProjectCard({
               transition-transform
               duration-500
               group-hover:scale-105
+              ${imageDark ? "block dark:hidden": "block"}
             `}
           />
-
+          {imageDark && (
+            <Image
+            src={imageDark}
+            alt={title}
+            width={1200}
+            height={700}
+            className={`
+              w-full
+              ${imageHeight}
+              ${position}
+              transition-transform
+              duration-500
+              group-hover:scale-105
+              hidden dark:block
+            `}
+          />
+          )}
           <div
             className="
             absolute inset-0

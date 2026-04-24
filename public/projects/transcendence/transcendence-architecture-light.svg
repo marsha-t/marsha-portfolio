@@ -3,8 +3,8 @@
 <style>
   .box { fill: #ffffff; stroke: #333; stroke-width: 1.5; rx: 10; }
   .layer { fill: #f5f5f5; stroke: #aaa; stroke-width: 1; rx: 12; }
-  .text { font-family: Inter, sans-serif; font-size: 12px; fill: #222; }
-  .title { font-weight: 600; font-size: 13px; }
+  .text { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; font-size: 13px; fill: #222; dominant-baseline: middle;}
+  .title { font-weight: 600; font-size: 14px; }
   .arrow { stroke: #333; stroke-width: 1.5; marker-end: url(#arrow); }
   .ws { stroke: #2563eb; stroke-width: 2; stroke-dasharray: 5 4; marker-end: url(#arrow); }
 </style>
@@ -17,19 +17,19 @@
 
 <!-- Client -->
 <circle cx="500" cy="60" r="35" fill="#e6f0ff" stroke="#333"/>
-<text x="500" y="60" text-anchor="middle" class="text title">User</text>
-<text x="500" y="78" text-anchor="middle" class="text">Browser</text>
+<text x="500" y="55" text-anchor="middle" class="text title">User</text>
+<text x="500" y="70" text-anchor="middle" class="text">Browser</text>
 
 <!-- Nginx -->
 <rect x="400" y="120" width="200" height="55" class="box"/>
-<text x="500" y="145" text-anchor="middle" class="text title">Nginx</text>
-<text x="500" y="162" text-anchor="middle" class="text">HTTPS / WSS</text>
+<text x="500" y="143" text-anchor="middle" class="text title">Nginx</text>
+<text x="500" y="160" text-anchor="middle" class="text">HTTPS / WSS</text>
 
 <!-- Frontend -->
 <rect x="400" y="200" width="200" height="65" fill="#d9f2e6" stroke="#333" rx="10"/>
-<text x="500" y="225" text-anchor="middle" class="text title">Frontend</text>
-<text x="500" y="242" text-anchor="middle" class="text">SPA (TypeScript + Tailwind)</text>
-<text x="500" y="258" text-anchor="middle" class="text">Served via Nginx</text>
+<text x="500" y="220" text-anchor="middle" class="text title">Frontend</text>
+<text x="500" y="237" text-anchor="middle" class="text">SPA (TypeScript + Tailwind)</text>
+<text x="500" y="253" text-anchor="middle" class="text">Served via Nginx</text>
 
 <!-- Backend Layer -->
 <rect x="50" y="300" width="900" height="220" class="layer"/>
@@ -55,9 +55,9 @@
 <text x="460" y="390" text-anchor="middle" class="text">Friend Lists</text>
 <text x="460" y="405" text-anchor="middle" class="text">Social</text>
 
-<!-- Game (slightly bigger for emphasis) -->
-<rect x="550" y="345" width="180" height="80" class="box"/>
-<text x="640" y="370" text-anchor="middle" class="text title">Game-Tournament</text>
+<!-- Game  -->
+<rect x="550" y="350" width="180" height="70" class="box"/>
+<text x="640" y="372" text-anchor="middle" class="text title">Game-Tournament</text>
 <text x="640" y="390" text-anchor="middle" class="text">Gameplay Engine</text>
 <text x="640" y="405" text-anchor="middle" class="text">Tournaments + AI</text>
 

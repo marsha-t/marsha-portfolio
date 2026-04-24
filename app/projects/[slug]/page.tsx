@@ -37,7 +37,7 @@ export default async function ProjectPage({
         {/* Main content */}
         <article
           className="
-            prose prose-neutral
+            prose 
             max-w-none
 
             prose-h1:text-4xl
@@ -59,8 +59,7 @@ export default async function ProjectPage({
             prose-img:rounded-lg
             prose-img:mx-auto
             
-            prose-pre:bg-[var(--bg-bg)]
-            prose-pre:text-[var(--code-text)]
+            prose-pre:bg-[var(--bg-secondary)]
             prose-pre:border-[var(--border-default)]
             prose-pre:rounded-xl
             prose-pre:px-5

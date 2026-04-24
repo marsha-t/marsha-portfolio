@@ -28,6 +28,7 @@ export default function FeaturedProjects() {
               title={project!.title}
               description={project!.summary}
               image={project!.image}
+              imageDark={project!.imageDark}
               imagePosition={project!.imagePosition}
               href={`/projects/${project!.slug}`}
               tech={project!.tech}

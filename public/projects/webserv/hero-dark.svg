@@ -1,0 +1,76 @@
+<svg class="diagram" width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" >
+<style>
+
+.diagram {
+  --box-fill: #111113;      
+  --box-stroke: #ffffff;    
+  --text-main: #ccc;     
+  --text-muted: #cccccc;    
+  --arrow: #cccccc;         
+}
+
+.box {
+  fill: var(--box-fill);
+  stroke: var(--box-stroke);
+  stroke-width: 1.5;
+  rx: 8;
+}
+.text {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  fill: var(--text-main);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.small {
+  font-weight: normal;
+  font-size: 16px;
+  fill: var(--text-muted);
+}
+.arrow {
+  stroke: var(--arrow);
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+}
+
+</style>
+
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="var(--arrow)" />
+  </marker>
+</defs>
+
+<!-- Client -->
+<rect x="20" y="80" width="120" height="60" class="box"/>
+<text x="80" y="100" class="text">Client</text>
+<text x="80" y="125" class="text small">Browser</text>
+
+<!-- Socket -->
+<rect x="200" y="80" width="140" height="60" class="box"/>
+<text x="270" y="100" class="text">TCP Socket</text>
+<text x="270" y="125" class="text small">accept()</text>
+
+<!-- Event Loop -->
+<rect x="400" y="80" width="140" height="60" class="box"/>
+<text x="470" y="100" class="text">Event Loop</text>
+<text x="470" y="125" class="text small">select()</text>
+
+<!-- Router -->
+<rect x="600" y="80" width="120" height="60" class="box"/>
+<text x="660" y="100" class="text">Router</text>
+<text x="660" y="125" class="text small">config rules</text>
+
+<!-- Handler -->
+<rect x="780" y="80" width="160" height="60" class="box"/>
+<text x="860" y="100" class="text">Handler</text>
+<text x="860" y="125" class="text small">Static / CGI</text>
+
+<!-- Arrows -->
+<line x1="140" y1="110" x2="200" y2="110" class="arrow"/>
+<line x1="340" y1="110" x2="400" y2="110" class="arrow"/>
+<line x1="540" y1="110" x2="600" y2="110" class="arrow"/>
+<line x1="720" y1="110" x2="780" y2="110" class="arrow"/>
+
+</svg>

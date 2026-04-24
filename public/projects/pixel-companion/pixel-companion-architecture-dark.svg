@@ -1,0 +1,70 @@
+<svg width="900" height="360" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#555"/>
+    </marker>
+
+    <style>
+      .box {
+        fill: #111113;
+        stroke: #ffffff;
+        stroke-width: 1.5;
+        rx: 10;
+      }
+
+      .text-title {
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        fill: #ccc;
+      }
+
+      .text-body {
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 13px;
+        fill: #cccccc;
+      }
+    </style>
+  </defs>
+
+  <!-- Top Row -->
+
+  <rect class="box" x="80" y="60" width="180" height="80"/>
+  <text class="text-title" x="170" y="100" text-anchor="middle">Browser</text>
+  <text class="text-body" x="170" y="120" text-anchor="middle">YouTube page</text>
+
+  <rect class="box" x="360" y="60" width="180" height="80"/>
+  <text class="text-title" x="450" y="100" text-anchor="middle">Chrome Extension</text>
+  <text class="text-body" x="450" y="120" text-anchor="middle">Manifest + scripts</text>
+
+  <rect class="box" x="640" y="60" width="180" height="80"/>
+  <text class="text-title" x="730" y="100" text-anchor="middle">Content Script</text>
+  <text class="text-body" x="730" y="120" text-anchor="middle">Runs in YouTube DOM</text>
+
+  <!-- Bottom Row -->
+
+  <rect class="box" x="220" y="220" width="180" height="80"/>
+  <text class="text-title" x="310" y="260" text-anchor="middle">Overlay UI</text>
+  <text class="text-body" x="310" y="280" text-anchor="middle">Pixel companion</text>
+
+  <rect class="box" x="500" y="220" width="180" height="80"/>
+  <text class="text-title" x="590" y="260" text-anchor="middle">chrome.storage</text>
+  <text class="text-body" x="590" y="280" text-anchor="middle">State + preferences</text>
+
+  <!-- Horizontal arrows -->
+
+  <line x1="260" y1="100" x2="360" y2="100" stroke="#cccccc" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="540" y1="100" x2="640" y2="100" stroke="#cccccc" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Down arrow -->
+
+  <line x1="730" y1="140" x2="730" y2="180" stroke="#cccccc" stroke-width="2"/>
+  <line x1="730" y1="180" x2="310" y2="180" stroke="#cccccc" stroke-width="2"/>
+  <line x1="310" y1="180" x2="310" y2="220" stroke="#cccccc" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Overlay to storage -->
+
+  <line x1="400" y1="260" x2="500" y2="260" stroke="#cccccc" stroke-width="2" marker-end="url(#arrow)"/>
+
+</svg>
