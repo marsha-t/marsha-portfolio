@@ -240,4 +240,4 @@ Or does it quietly hook into this same microtask mechanism?
 
 Understanding that requires looking at `async` functions more closely.
 
-That is the subject of the next article.
+That is the subject of the [next article](/writing/async-await).
