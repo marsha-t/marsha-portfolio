@@ -12,7 +12,13 @@ Built as a content system where  projects and articles are written as structured
 
 ## Why I built this
 
-<img src="./public/sunrise-text.svg"/>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./public/sunset-text.svg">
+    <img src="./public/sunrise-text.svg" width="100%" />
+  </picture>
+</p>
+
 
 I wanted a portfolio that reflects how I think and learn. Instead of using a template, I built this from scratch to:
 - Write and publish technical articles

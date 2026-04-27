@@ -23,10 +23,10 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--bg-primary)] border-b border-[var(--border-accent)]">
-      <div className="max-w-3xl mx-auto flex justify-center items-center gap-8 py-4 text-sm text-[var(--text-muted)]">
+    <nav className="sticky top-0 z-50 bg-[var(--bg-primary)] border-b border-[var(--border-accent)] relative">
+      <div className="max-w-3xl mx-auto flex justify-center items-center gap-8 py-4 text-sm text-[var(--text-muted)] ">
         {/* links */}
-        <div className="flex gap-8 mx-auto">
+        <div className="flex gap-8 mx-auto pr-12 sm:pr-16">
           <Link
             className="hover:text-[var(--text-hover)] hover:underline underline-offset-2 transition-colors"
             href="/"
@@ -50,7 +50,7 @@ export default function Navbar() {
         {/* toggle */}
         <button
           onClick={toggleTheme}
-          className="group absolute right-6 
+          className="group absolute right-4 sm:right-6
             p-2 rounded-md hover:bg-[var(--bg-secondary)]"
         >
           <div className="relative w-6 h-6  transition-colors duration-500 ease-in-out">

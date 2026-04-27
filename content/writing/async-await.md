@@ -77,7 +77,7 @@ After await
 After test
 ```
 
-Instead, we observe that `D` runs before `B`:
+Instead, we observe that `After test` runs before `After await`:
 
 ``` plaintext
 Before test

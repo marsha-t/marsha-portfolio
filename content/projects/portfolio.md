@@ -6,6 +6,8 @@ year: 2026
 timeframe: "Mar 2026"
 featured: false
 image: "/sunrise.png"
+imageDark: "/sunset.png"
+
 imagePosition: "object-cover object-[center_45%]"
 tech:
   - Next.js
