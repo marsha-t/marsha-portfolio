@@ -51,7 +51,7 @@ export default function Navbar() {
         <button
           onClick={toggleTheme}
           className="group absolute right-4 sm:right-6
-            p-2 rounded-md hover:bg-[var(--bg-secondary)]"
+            p-2 rounded-md sm:hover:bg-[var(--bg-secondary)] active:bg-[var(--bg-secondary)]"
         >
           <div className="relative w-6 h-6  transition-colors duration-500 ease-in-out">
             <Sun
