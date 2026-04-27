@@ -2,6 +2,7 @@ import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import HighlightTheme from "@/components/HighlightTheme";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: {
@@ -49,6 +50,7 @@ export default function RootLayout({
             {children}
           </main>
         <Footer />
+        <Analytics/>
       </body>
     </html>
   )
