@@ -12,7 +12,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[70vh] sm:min-h-[calc(100vh-64px)]
+    flex items-center justify-center overflow-hidden">
       {/* Background */}
 
       <div className="absolute inset-0 block dark:hidden">
@@ -21,7 +22,7 @@ export default function Hero() {
           alt="Sunrise illustration"
           fill
           priority
-          className="object-cover scale-110 sm:scale-100 "
+          className="object-cover sm:scale-100 "
         />
       </div>
 
@@ -31,7 +32,7 @@ export default function Hero() {
           alt="Sunset illustration"
           fill
           priority
-          className="object-cover scale-110 sm:scale-100 "
+          className="object-cover sm:scale-100 "
         />
       </div>
 
