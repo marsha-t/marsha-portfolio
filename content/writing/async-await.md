@@ -287,4 +287,4 @@ We now understand:
 There is one more piece missing:
 > When does rendering happen?
 
-To answer that we need to look beyond JavaScript execution and into the browser's frame lifecycle. That is the next layer of the event loop, and that's where we go next. 
+To answer that we need to look beyond JavaScript execution and into the browser's frame lifecycle. That is the next layer of the event loop, and that's where we go [next](/writing/rendering). 
