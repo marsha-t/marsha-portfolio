@@ -159,7 +159,7 @@ As established, the browser does not render while microtasks are pending. Microt
 
 ## Test 2: Is `requestAnimationFrame` Just Another Task?
 
-If `requestAnimationFrame` were simply another macrotask, it would behave like `setTimeout` and follow te ordering of tasks:
+If `requestAnimationFrame` were simply another macrotask, it would behave like `setTimeout` and follow the ordering of tasks:
 
 ```javascript
 console.log("start");
