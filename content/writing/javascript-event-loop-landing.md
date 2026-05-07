@@ -93,13 +93,13 @@ Read it [here](async-await)
 
 You updated the DOM. So why didn’t the screen change? This article explains why rendering is not triggered by JavaScript, but gated by it.
 
-Read it [here](rendering)
+Read it [here](rendering).
 
 **6) `requestAnimationFrame`: The Missing Scheduling Layer**
 
 If rendering only happens at certain moments, how do you run code at the right time? This article introduces `requestAnimationFrame` as the missing scheduling layer.
 
-_Coming soon_
+Read it [here](requestAnimationFrame).
 
 **7) What the Event Loop Means for Real UI Code**
 
