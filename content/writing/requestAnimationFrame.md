@@ -7,11 +7,11 @@ featured: true
 image: "/sunrise-default.svg"
 tech: 
   - JavaScript
-# links:
+links:
 #   - label: Medium
 #     url: https://medium.com/
-#   - label: Dev.to
-#     url: https://dev.to/marshateo/
+  - label: Dev.to
+    url: https://dev.to/marshateo/requestanimationframe-the-missing-scheduling-layer-1el0
 ---
 
 <p className="mt-4 text-sm text-[var(--text-subtle)] italic">
@@ -74,6 +74,7 @@ while (gameRunning) {
 ```
 
 This will freeze your browser. Be prepared to close the browser tab after running this. 
+
 This code completely blocks rendering. Since the call stack never empties, the browser never regains control and no rendering can occur. The page never updates.  
 
 So developers sliced work into smaller chunks to allow for breathing space for the browser to render:
