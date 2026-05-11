@@ -5,7 +5,7 @@ date: "2024-10-02"
 year: 2024
 timeframe: "Aug–Oct 2024"
 featured: false
-image: "/projects/minirt/mandatory.jpg"
+image: "/projects/miniRT/mandatory.jpg"
 tech:
   [
     "Computer Graphics",
@@ -22,7 +22,7 @@ team: 2
 <figure id="hero-image">
 
 <img 
-  src="/projects/minirt/mandatory.jpg"
+  src="/projects/miniRT/mandatory.jpg"
   alt="Scene demonstrating primitive geometry, ambient lighting,
     diffuse shading, and shadow casting"
   class="rounded-lg mx-auto "
@@ -43,10 +43,10 @@ From rendering simple spheres, the project gradually evolved into a more complet
 
 <figure>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
-    <img src="/projects/minirt/rendering-pipeline-light.svg" />
+    <img src="/projects/miniRT/rendering-pipeline-light.svg" />
   </div>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
-    <img src="/projects/minirt/rendering-pipeline-dark.svg" />
+    <img src="/projects/miniRT/rendering-pipeline-dark.svg" />
   </div>
 
   <figcaption>
@@ -119,7 +119,7 @@ Over the course of development, the renderer grew from a basic ray tracer into a
 
 <figure>
   <img 
-    src="/projects/minirt/complex.jpg"
+    src="/projects/miniRT/complex.jpg"
     alt= "Stress-test scene with dense geometry, multiple lights (including spotlights), and overlapping shadows"
     class="rounded-lg mx-auto"
   />
@@ -141,10 +141,10 @@ Many of the hardest bugs in the renderer were mathematically subtle rather than 
 
 <figure>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
-    <img src="/projects/minirt/camera-basis-light.svg" />
+    <img src="/projects/miniRT/camera-basis-light.svg" />
   </div>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
-    <img src="/projects/minirt/camera-basis-dark.svg" />
+    <img src="/projects/miniRT/camera-basis-dark.svg" />
   </div>
 
   <figcaption>
@@ -202,10 +202,10 @@ Lighting calculations also introduced several rendering artifacts. One recurring
 
 <figure>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
-    <img src="/projects/minirt/shadow-ray-light.svg" />
+    <img src="/projects/miniRT/shadow-ray-light.svg" />
   </div>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl hidden dark:block">
-    <img src="/projects/minirt/shadow-ray-dark.svg" />
+    <img src="/projects/miniRT/shadow-ray-dark.svg" />
   </div>
 
   <figcaption>
@@ -226,7 +226,7 @@ Applying patterns to curved objects became especially interesting because the ma
 
 <figure>
   <img 
-    src="/projects/minirt/checker.jpg"
+    src="/projects/miniRT/checker.jpg"
     alt= "Scene demonstrating checkerboard texturing across spheres, planes, cylinders and cones"
     class="rounded-lg mx-auto "
   />
@@ -252,7 +252,7 @@ Implementing checkerboard textures also influenced later work on bump mapping, s
 
 <figure>
   <img 
-    src="/projects/minirt/bump.jpg"
+    src="/projects/miniRT/bump.jpg"
     alt= "Sphere rendered with XPM-based bump mapping to simulate surface detail without modifying geometry"
     class="rounded-lg mx-auto "
   />
