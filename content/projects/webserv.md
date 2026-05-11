@@ -21,7 +21,7 @@ team: 2
 # Webserv — HTTP Server in C++
 *Building a fully functional HTTP server from scratch using C++98 and POSIX sockets*
 
-<div id="hero-image">
+<figure id="hero-image">
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
     <img 
       src="/projects/webserv/hero-light.svg"
@@ -36,7 +36,7 @@ team: 2
       class="rounded-lg mx-auto "
     />
   </div>
-</div>
+</figure>
 
 ## Overview
 

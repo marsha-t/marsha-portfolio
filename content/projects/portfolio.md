@@ -24,7 +24,7 @@ team: 1
 # Portfolio Website
 *Designing a portfolio for documenting projects, experiments, and technical writing*
 
-<div id="hero-image">
+<figure id="hero-image">
 
   <div className="block dark:hidden">
     <img 
@@ -41,7 +41,7 @@ team: 1
     />
   </div>
 
-</div>
+</figure>
 
 ## Overview
 

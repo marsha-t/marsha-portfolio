@@ -1,0 +1,122 @@
+<svg width="960" height="340" viewBox="0 0 960 340" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+
+/* === TOKENS === */
+:root {
+  --box-fill: #111113;
+  --box-stroke: #ffffff;
+  --text-main: #cccccc;
+  --text-muted: #cccccc;
+  --arrow: #cccccc;
+}
+
+/* === COMPONENTS === */
+
+.box {
+  fill: var(--box-fill);
+  stroke: var(--box-stroke);
+  stroke-width: 1.5;
+  rx: 12;
+}
+
+.label {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-main);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.sub {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 12px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.arrow {
+  stroke: var(--arrow);
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+  fill: none;
+}
+
+</style>
+
+<defs>
+  <marker
+    id="arrowhead"
+    markerWidth="10"
+    markerHeight="7"
+    refX="10"
+    refY="3.5"
+    orient="auto"
+  >
+    <polygon points="0 0, 10 3.5, 0 7" fill="var(--arrow)" />
+  </marker>
+</defs>
+
+<!-- === TOP ROW === -->
+
+<!-- Camera -->
+<rect x="60" y="60" width="160" height="74" class="box"/>
+<text x="140" y="90" class="label">Camera</text>
+<text x="140" y="112" class="sub">view origin + FOV</text>
+
+<!-- Primary Ray -->
+<rect x="260" y="60" width="160" height="74" class="box"/>
+<text x="340" y="90" class="label">Primary Ray</text>
+<text x="340" y="112" class="sub">one ray per pixel</text>
+
+<!-- Intersection -->
+<rect x="460" y="60" width="160" height="74" class="box"/>
+<text x="540" y="90" class="label">Intersection</text>
+<text x="540" y="112" class="sub">nearest object hit</text>
+
+<!-- Surface Data -->
+<rect x="660" y="60" width="160" height="74" class="box"/>
+<text x="740" y="90" class="label">Surface Data</text>
+<text x="740" y="112" class="sub">normal + material</text>
+
+<!-- === BOTTOM ROW === -->
+
+<!-- Lighting -->
+<rect x="60" y="220" width="160" height="74" class="box"/>
+<text x="140" y="250" class="label">Lighting</text>
+<text x="140" y="272" class="sub">ambient + diffuse</text>
+
+<!-- Shadow Rays -->
+<rect x="260" y="220" width="160" height="74" class="box"/>
+<text x="340" y="250" class="label">Shadow Rays</text>
+<text x="340" y="272" class="sub">light visibility test</text>
+
+<!-- Surface Effects -->
+<rect x="460" y="220" width="160" height="74" class="box"/>
+<text x="540" y="250" class="label">Surface Effects</text>
+<text x="540" y="272" class="sub">textures + bump maps</text>
+
+<!-- Final Pixel -->
+<rect x="660" y="220" width="160" height="74" class="box"/>
+<text x="740" y="250" class="label">Final Pixel</text>
+<text x="740" y="272" class="sub">composited shading</text>
+
+<!-- === TOP FLOW === -->
+
+<line x1="220" y1="97" x2="260" y2="97" class="arrow"/>
+<line x1="420" y1="97" x2="460" y2="97" class="arrow"/>
+<line x1="620" y1="97" x2="660" y2="97" class="arrow"/>
+
+<!-- === PIPELINE TRANSITION === -->
+
+<path d="M 740 134 C 860 180, 860 260, 820 257" class="arrow"/>
+
+<!-- === BOTTOM FLOW === -->
+
+<line x1="220" y1="257" x2="260" y2="257" class="arrow"/>
+<line x1="420" y1="257" x2="460" y2="257" class="arrow"/>
+<line x1="620" y1="257" x2="660" y2="257" class="arrow"/>
+
+</svg>

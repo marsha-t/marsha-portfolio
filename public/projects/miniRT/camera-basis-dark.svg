@@ -1,0 +1,173 @@
+<svg width="960" height="240" viewBox="0 40 960 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      fill: rgb(230 230 230);
+    }
+
+    .sub {
+      font-size: 12px;
+      fill: rgb(163 163 163);
+    }
+
+    .plane {
+      fill: rgb(12 74 110);
+      stroke: rgb(56 189 248);
+      stroke-width: 2;
+    }
+
+    .guide {
+      stroke: rgb(148 163 184);
+      stroke-opacity: 0.45;
+      stroke-width: 1.2;
+      stroke-dasharray: 5 5;
+    }
+
+    .basis {
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .ray {
+      stroke: rgb(251 146 60);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 6 6;
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="rgb(56 189 248)" />
+    </marker>
+
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="rgb(74 222 128)" />
+    </marker>
+
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="rgb(248 113 113)" />
+    </marker>
+
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="rgb(251 146 60)" />
+    </marker>
+  </defs>
+
+  <!-- Image plane -->
+  <polygon
+    points="620,65 860,105 860,245 620,205"
+    class="plane"
+  />
+
+  <!-- Grid -->
+  <line x1="680" y1="75" x2="680" y2="215" class="guide" />
+  <line x1="740" y1="85" x2="740" y2="225" class="guide" />
+  <line x1="800" y1="95" x2="800" y2="235" class="guide" />
+
+  <line x1="620" y1="118" x2="860" y2="158" class="guide" />
+  <line x1="620" y1="165" x2="860" y2="205" class="guide" />
+
+  <!-- Camera origin -->
+  <circle cx="210" cy="165" r="6" fill="rgb(230 230 230)" />
+
+  <!-- Forward -->
+  <line
+    x1="210"
+    y1="165"
+    x2="440"
+    y2="165"
+    class="basis"
+    stroke="rgb(56 189 248)"
+    marker-end="url(#arrow-blue)"
+  />
+
+  <!-- Right -->
+  <line
+    x1="210"
+    y1="165"
+    x2="330"
+    y2="210"
+    class="basis"
+    stroke="rgb(74 222 128)"
+    marker-end="url(#arrow-green)"
+  />
+
+  <!-- Up -->
+  <line
+    x1="210"
+    y1="165"
+    x2="210"
+    y2="75"
+    class="basis"
+    stroke="rgb(248 113 113)"
+    marker-end="url(#arrow-red)"
+  />
+
+  <!-- Rays -->
+  <line
+    x1="210"
+    y1="165"
+    x2="620"
+    y2="65"
+    class="ray"
+    marker-end="url(#arrow-orange)"
+  />
+
+  <line
+    x1="210"
+    y1="165"
+    x2="740"
+    y2="155"
+    class="ray"
+    marker-end="url(#arrow-orange)"
+  />
+
+  <line
+    x1="210"
+    y1="165"
+    x2="860"
+    y2="245"
+    class="ray"
+    marker-end="url(#arrow-orange)"
+  />
+
+  <!-- Labels -->
+  <text x="210" y="235" text-anchor="middle" class="label">
+    camera origin
+  </text>
+
+  <text x="360" y="148" text-anchor="middle" class="label" fill="rgb(56 189 248)">
+    forward
+  </text>
+
+  <text x="320" y="228" text-anchor="middle" class="label" fill="rgb(74 222 128)">
+    right
+  </text>
+
+  <text x="232" y="102" class="label" fill="rgb(248 113 113)">
+    up
+  </text>
+
+  <text x="740" y="272" text-anchor="middle" class="label">
+    image plane
+  </text>
+
+  <!-- Ray labels -->
+  <text x="500" y="78" class="sub">
+    top-left pixel ray
+  </text>
+
+  <text x="535" y="148" class="sub">
+    centre pixel ray
+  </text>
+
+  <text x="585" y="238" class="sub">
+    bottom-right pixel ray
+  </text>
+</svg>

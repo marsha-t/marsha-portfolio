@@ -1,0 +1,192 @@
+<svg width="960" height="340" viewBox="0 0 960 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --card: #ffffff;
+      --border: #cfcfcf;
+      --text: #171717;
+      --muted: #666666;
+    }
+
+    [data-theme='dark'] {
+      --card: #262626;
+      --border: #4a4a4a;
+      --text: #e5e5e5;
+      --muted: #9a9a9a;
+    }
+
+    .label {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      fill: var(--text);
+    }
+
+    .sub {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 12px;
+      fill: var(--muted);
+    }
+
+    .card {
+      fill: var(--card);
+      stroke: var(--border);
+      stroke-width: 1.5;
+    }
+
+    .arrow {
+      stroke: var(--border);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  </style>
+
+  <defs>
+    <marker
+      id="arrowhead"
+      markerWidth="10"
+      markerHeight="10"
+      refX="8"
+      refY="5"
+      orient="auto"
+    >
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--border)" />
+    </marker>
+  </defs>
+
+  <!-- Top Row -->
+
+  <g transform="translate(60,60)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Camera</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      view origin + FOV
+    </text>
+  </g>
+
+  <g transform="translate(260,60)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Primary Ray</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      one ray per pixel
+    </text>
+  </g>
+
+  <g transform="translate(460,60)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Intersection</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      nearest object hit
+    </text>
+  </g>
+
+  <g transform="translate(660,60)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Surface Data</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      normal + material
+    </text>
+  </g>
+
+  <!-- Bottom Row -->
+
+  <g transform="translate(60,220)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Lighting</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      ambient + diffuse
+    </text>
+  </g>
+
+  <g transform="translate(260,220)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Shadow Rays</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      light visibility test
+    </text>
+  </g>
+
+  <g transform="translate(460,220)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Surface Effects</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      textures + bump maps
+    </text>
+  </g>
+
+  <g transform="translate(660,220)">
+    <rect class="card" width="160" height="74" rx="14"/>
+    <text x="80" y="32" text-anchor="middle" class="label">Final Pixel</text>
+    <text x="80" y="53" text-anchor="middle" class="sub">
+      composited shading
+    </text>
+  </g>
+
+  <!-- Top Row Arrows -->
+
+  <line
+    x1="220"
+    y1="97"
+    x2="252"
+    y2="97"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <line
+    x1="420"
+    y1="97"
+    x2="452"
+    y2="97"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <line
+    x1="620"
+    y1="97"
+    x2="652"
+    y2="97"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <!-- Transition Arrow -->
+
+  <path
+    d="M740 134 V180 H140 V220"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <!-- Bottom Row Arrows -->
+
+  <line
+    x1="220"
+    y1="257"
+    x2="252"
+    y2="257"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <line
+    x1="420"
+    y1="257"
+    x2="452"
+    y2="257"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+  <line
+    x1="620"
+    y1="257"
+    x2="652"
+    y2="257"
+    class="arrow"
+    marker-end="url(#arrowhead)"
+  />
+
+</svg>

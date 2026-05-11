@@ -22,7 +22,7 @@ team: 1
 # Pixel Companion for YouTube — Chrome Extension
 *A pixel-art companion that appears while you watch YouTube videos*
 
-<div id="hero-image">
+<figure id="hero-image">
 
 <img 
   src="/projects/pixel-companion/pixel-companion-hero.png"
@@ -30,7 +30,7 @@ team: 1
   class="rounded-lg mx-auto "
 />
 
-</div>
+</figure>
 
 ## Overview
 
