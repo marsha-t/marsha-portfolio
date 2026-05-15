@@ -101,11 +101,11 @@ If rendering only happens at certain moments, how do you run code at the right t
 
 Read it [here](requestAnimationFrame).
 
-**7) What the Event Loop Means for Real UI Code**
+**7) The Scheduling Boundaries Behind Responsive UI**
 
 Why do UIs freeze, skip updates, or feel laggy? This article connects the event loop to real-world UI behavior and shows how to work with the browser, not against it.
 
-_Coming soon_
+Read it [here](event-loop-application)
 
 ## The mental model
 
@@ -117,7 +117,6 @@ This is the model everything in this series builds toward:
 4. The browser runs any `requestAnimationFrame` callbacks  
 5. Microtasks drain again (if any were queued during `requestAnimationFrame`)  
 6. Only then can rendering happen  
-
 
 ## Continue the Conversation
 

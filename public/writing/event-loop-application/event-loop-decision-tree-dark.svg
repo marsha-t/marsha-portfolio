@@ -1,0 +1,189 @@
+<svg width="980" height="560" viewBox="0 0 980 560" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+:root {
+  --bg: #0f172a;
+  --box-fill: #111827;
+  --box-stroke: #475569;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --arrow: #cbd5e1;
+  --decision-fill: #1e293b;
+}
+
+.background {
+  fill: var(--bg);
+}
+
+.box {
+  fill: var(--box-fill);
+  stroke: var(--box-stroke);
+  stroke-width: 1.5;
+  rx: 12;
+}
+
+.decision {
+  fill: var(--decision-fill);
+  stroke: var(--box-stroke);
+  stroke-width: 1.5;
+}
+
+.text {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text-main);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.small {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  fill: var(--text-muted);
+}
+
+.arrow {
+  stroke: var(--arrow);
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+  fill: none;
+}
+</style>
+
+<defs>
+  <marker id="arrowhead"
+          markerWidth="10"
+          markerHeight="7"
+          refX="10"
+          refY="3.5"
+          orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="var(--arrow)" />
+  </marker>
+</defs>
+
+<!-- Background -->
+<rect width="980" height="560" class="background"/>
+
+<!-- Title -->
+<text x="490" y="42"
+      class="text"
+      style="font-size: 20px; font-weight: 700;">
+  Choosing an Event Loop Boundary
+</text>
+
+<!-- Start box -->
+<rect x="320"
+      y="80"
+      width="340"
+      height="58"
+      class="box"/>
+
+<text x="490" y="109" class="text">
+  What kind of boundary do I need?
+</text>
+
+<!-- Arrow to first decision -->
+<path d="M490 138 L490 175" class="arrow"/>
+
+<!-- Decision 1 -->
+<polygon points="
+  490,175
+  650,245
+  490,315
+  330,245
+"
+class="decision"/>
+
+<text x="490" y="235" class="text">
+  Continue immediately
+</text>
+
+<text x="490" y="258" class="text">
+  before rendering?
+</text>
+
+<!-- YES branch -->
+<path d="M650 245 L785 245" class="arrow"/>
+
+<text x="710" y="228" class="small">
+  Yes
+</text>
+
+<!-- Promise box -->
+<rect x="785"
+      y="215"
+      width="150"
+      height="60"
+      class="box"/>
+
+<text x="860" y="245" class="text">
+  Use Promise
+</text>
+
+<!-- NO branch downward -->
+<path d="M490 315 L490 365" class="arrow"/>
+
+<text x="505" y="345" class="small">
+  No
+</text>
+
+<!-- Decision 2 -->
+<polygon points="
+  490,365
+  650,435
+  490,505
+  330,435
+"
+class="decision"/>
+
+<text x="490" y="425" class="text">
+  Need visual alignment
+</text>
+
+<text x="490" y="448" class="text">
+  to next frame?
+</text>
+
+<!-- YES branch rAF -->
+<path d="M650 435 L785 435" class="arrow"/>
+
+<text x="710" y="418" class="small">
+  Yes
+</text>
+
+<!-- rAF box -->
+<rect x="785"
+      y="405"
+      width="170"
+      height="60"
+      class="box"/>
+
+<text x="870" y="428" class="text">
+  Use
+</text>
+
+<text x="870" y="448" class="text">
+  requestAnimationFrame
+</text>
+
+<!-- NO branch setTimeout -->
+<path d="M330 435 L195 435" class="arrow"/>
+
+<text x="265" y="418" class="small">
+  No
+</text>
+
+<!-- setTimeout box -->
+<rect x="25"
+      y="405"
+      width="170"
+      height="60"
+      class="box"/>
+
+<text x="110" y="435" class="text">
+  Use setTimeout
+</text>
+
+</svg>

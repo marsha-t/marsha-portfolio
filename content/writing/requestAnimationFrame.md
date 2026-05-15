@@ -8,8 +8,8 @@ image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
-#   - label: Medium
-#     url: https://medium.com/
+  - label: Medium
+    url: https://code.likeagirl.io/requestanimationframe-the-missing-scheduling-layer-66bf15b4e8a0
   - label: Dev.to
     url: https://dev.to/marshateo/requestanimationframe-the-missing-scheduling-layer-1el0
 ---
@@ -250,4 +250,4 @@ Why do we sometimes need cleanup guards?
 
 One we understand who gets to run and when, we can reason about performance, responsiveness and architectural trade-offs with precision. 
 
-This is where we go next. 
+This is where we go [next](/writing/event-loop-application). 
