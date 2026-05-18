@@ -7,11 +7,11 @@ featured: true
 image: "/sunrise-default.svg"
 tech: 
   - JavaScript
-# links:
-#   - label: Medium
-#     url: https://medium.com
-#   - label: Dev.to
-#     url: https://dev.to
+links:
+  - label: Medium
+    url: https://code.likeagirl.io/the-scheduling-boundaries-behind-responsive-ui-8f5804bcc0e8
+  - label: Dev.to
+    url: https://dev.to/marshateo/the-scheduling-boundaries-behind-responsive-ui-2m56
 ---
 
 <p className="mt-4 text-sm text-[var(--text-subtle)] italic">
