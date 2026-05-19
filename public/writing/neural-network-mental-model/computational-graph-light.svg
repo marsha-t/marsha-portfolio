@@ -1,0 +1,110 @@
+<svg width="920" height="180" viewBox="0 0 920 180" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+:root {
+  --box-fill: #ffffff;
+  --box-stroke: #374151;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --forward: #111827;
+  --backward: #7c3aed;
+}
+
+/* Boxes */
+.box {
+  fill: var(--box-fill);
+  stroke: var(--box-stroke);
+  stroke-width: 1.5;
+}
+
+/* Text */
+.label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text-main);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.sub {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.math {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  fill: var(--backward);
+  text-anchor: middle;
+}
+
+/* Arrows */
+.forward {
+  stroke: var(--forward);
+  stroke-width: 2;
+  fill: none;
+  marker-end: url(#arrow-forward);
+}
+
+.backward {
+  stroke: var(--backward);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  fill: none;
+  marker-end: url(#arrow-backward);
+}
+</style>
+
+<defs>
+  <marker id="arrow-forward" markerWidth="10" markerHeight="10"
+          refX="8" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#111827"/>
+  </marker>
+
+  <marker id="arrow-backward" markerWidth="10" markerHeight="10"
+          refX="8" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/>
+  </marker>
+</defs>
+
+<!-- Nodes -->
+
+<rect x="40" y="62" width="100" height="56" rx="10" class="box"/>
+<text x="90" y="85" class="label">Input</text>
+<text x="90" y="104" class="sub">x</text>
+
+<rect x="200" y="62" width="140" height="56" rx="10" class="box"/>
+<text x="270" y="85" class="label">Weighted Sum</text>
+<text x="270" y="104" class="sub">Wx + b</text>
+
+<rect x="400" y="62" width="120" height="56" rx="10" class="box"/>
+<text x="460" y="85" class="label">Activation</text>
+<text x="460" y="104" class="sub">ReLU</text>
+
+<rect x="580" y="62" width="120" height="56" rx="10" class="box"/>
+<text x="640" y="85" class="label">Prediction</text>
+<text x="640" y="104" class="sub">ŷ</text>
+
+<rect x="760" y="62" width="100" height="56" rx="10" class="box"/>
+<text x="810" y="85" class="label">Loss</text>
+<text x="810" y="104" class="sub">L</text>
+
+<!-- Forward arrows -->
+
+<line x1="140" y1="82" x2="200" y2="82" class="forward"/>
+<line x1="340" y1="82" x2="400" y2="82" class="forward"/>
+<line x1="520" y1="82" x2="580" y2="82" class="forward"/>
+<line x1="700" y1="82" x2="760" y2="82" class="forward"/>
+
+<!-- Backward arrows -->
+
+<line x1="760" y1="102" x2="700" y2="102" class="backward"/>
+<line x1="580" y1="102" x2="520" y2="102" class="backward"/>
+<line x1="400" y1="102" x2="340" y2="102" class="backward"/>
+<line x1="200" y1="102" x2="140" y2="102" class="backward"/>
+
+</svg>

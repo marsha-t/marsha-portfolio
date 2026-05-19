@@ -9,6 +9,8 @@ import rehypeSlug from "rehype-slug"; // heading IDs
 import rehypeAutolinkHeadings from "rehype-autolink-headings"; // anchor links
 import rehypeHighlight from "rehype-highlight"; // code syntax highlighting
 import rehypeStringify from "rehype-stringify"; // convert HTML AST to HTML
+import remarkMath from "remark-math"; // detect math syntax
+import rehypeKatex from "rehype-katex"; // convert to HTML nodes
 import { visit } from "unist-util-visit";
 
 export type ContentType = "writing" | "projects";
@@ -151,8 +153,10 @@ export async function getContentBySlug(type: ContentType, slug: string): Promise
   // - .process() to run markdown content through processor; is async
   const processedContent = await remark()
     .use(remarkGfm) // tables, strikethrough, task lists
+    .use(remarkMath) // parse LaTex syntax
     .use(remarkRehype, { allowDangerousHtml: true }) // markdown → html AST
     .use(rehypeRaw) // allow HTML inside markdown
+    .use(rehypeKatex) // render math to HTML
     .use(rehypeSlug) // add ids to headings
     .use(extractHeadings)
     .use(rehypeAutolinkHeadings, {

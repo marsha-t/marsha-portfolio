@@ -56,6 +56,8 @@ export default async function ProjectPage({
             [&_h2_a]:font-bold
             [&_h3_a]:font-semibold
 
+            [&_h2]:scroll-mt-24
+            
             prose-img:rounded-lg
             prose-img:mx-auto
             
