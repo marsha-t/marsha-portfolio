@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="980" viewBox="0 0 1220 980">
+<defs>
+<style>
+.background{fill:#0f172a}
+.operator-node{fill:#1e293b;stroke:#38bdf8;stroke-width:2.5}
+.command-node{fill:#111827;stroke:#a78bfa;stroke-width:2.5}
+.meta-node{fill:#1f2937;stroke:#64748b;stroke-width:1.8}
+.pipeline-group{fill:#111827;fill-opacity:.25;stroke:#f59e0b;stroke-width:2;stroke-dasharray:8 6}
+.operator-text{fill:#e0f2fe;font:700 20px Arial,sans-serif}
+.command-text{fill:#ede9fe;font:700 17px monospace}
+.label-text{fill:#cbd5e1;font:600 13px Arial,sans-serif}
+.meta-text{fill:#f8fafc;font:14px monospace}
+.edge{stroke:#94a3b8;stroke-width:2.2;fill:none}
+.pipe-edge{stroke:#f59e0b;stroke-width:3;fill:none}
+.pipe-text{fill:#fbbf24;font:700 12px Arial,sans-serif}
+.caption{fill:#cbd5e1;font:15px monospace}
+</style>
+<marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#94a3b8"/></marker>
+<marker id="o" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#f59e0b"/></marker>
+</defs>
+<rect class="operator-node" x="540" y="40" width="160" height="60" rx="14"/><text class="operator-text" x="620" y="77" text-anchor="middle">OR (||)</text>
+<rect class="operator-node" x="290" y="150" width="170" height="60" rx="14"/><text class="operator-text" x="375" y="187" text-anchor="middle">AND (&amp;&amp;)</text>
+<rect class="command-node" x="860" y="150" width="240" height="72" rx="14"/><text class="command-text" x="980" y="180" text-anchor="middle">CMD("echo")</text><text class="label-text" x="980" y="203" text-anchor="middle">args: "no errors"</text>
+<rect class="command-node" x="530" y="290" width="250" height="72" rx="14"/><text class="command-text" x="655" y="320" text-anchor="middle">CMD("echo")</text><text class="label-text" x="655" y="343" text-anchor="middle">args: "errors found"</text>
+<rect class="pipeline-group" x="40" y="260" width="390" height="660" rx="18"/>
+<text x="65" y="290" fill="#fbbf24" font-family="Arial" font-size="15" font-weight="700">PIPELINE</text>
+
+<rect class="command-node" x="170" y="320" width="180" height="70" rx="12"/><text class="command-text" x="260" y="350" text-anchor="middle">CMD("cat")</text>
+<rect class="meta-node" x="45" y="328" width="105" height="54" rx="10"/><text class="label-text" x="97.5" y="349" text-anchor="middle">input_list</text><text class="meta-text" x="97.5" y="369" text-anchor="middle">"input.txt"</text><path class="edge" d="M150 355 L170 355" marker-end="url(#g)"/>
+
+<rect class="command-node" x="170" y="490" width="180" height="70" rx="12"/><text class="command-text" x="260" y="520" text-anchor="middle">CMD("grep")</text><text class="label-text" x="260" y="542" text-anchor="middle">args: "error"</text>
+<rect class="command-node" x="170" y="660" width="180" height="70" rx="12"/><text class="command-text" x="260" y="690" text-anchor="middle">CMD("sort")</text>
+<rect class="command-node" x="170" y="830" width="180" height="70" rx="12"/><text class="command-text" x="260" y="860" text-anchor="middle">CMD("uniq")</text><text class="label-text" x="260" y="882" text-anchor="middle">args: "-c"</text>
+
+<path class="pipe-edge" d="M260 390 L260 490" marker-end="url(#o)"/><text class="pipe-text" x="275" y="445">pipe</text>
+<path class="pipe-edge" d="M260 560 L260 660" marker-end="url(#o)"/><text class="pipe-text" x="275" y="615">pipe</text>
+<path class="pipe-edge" d="M260 730 L260 830" marker-end="url(#o)"/><text class="pipe-text" x="275" y="785">pipe</text>
+
+<path class="edge" d="M570 100 C515 120 420 130 385 150" marker-end="url(#g)"/><text class="label-text" x="490" y="125">left</text>
+<path class="edge" d="M670 100 C740 120 930 130 960 150" marker-end="url(#g)"/><text class="label-text" x="840" y="125">right</text>
+<path class="edge" d="M330 210 C285 240 260 260 260 320" marker-end="url(#g)"/><text class="label-text" x="275" y="245">left</text>
+<path class="edge" d="M420 210 C490 245 585 250 630 290" marker-end="url(#g)"/><text class="label-text" x="520" y="245">right</text>
+
+<text class="caption" x="610" y="955" text-anchor="middle">cat &lt; input.txt | grep error | sort | uniq -c &amp;&amp; echo "errors found" || echo "no errors"</text>
+</svg>

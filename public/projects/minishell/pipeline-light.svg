@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1706" height="620" viewBox="0 0 1706 620" role="img" aria-labelledby="title desc">
+  <title id="title">Minishell command-processing pipeline</title>
+  <desc id="desc">A horizontal flowchart showing how Minishell processes input from Readline through parsing, expansion, setup, execution, and cleanup.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 6 L 0 12 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .bg { fill: url(#bg); }
+      .stage-label {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        fill: #64748b;
+        text-anchor: middle;
+      }
+      .stage-line {
+        stroke: #cbd5e1;
+        stroke-width: 2;
+      }
+      .box {
+        fill: #ffffff;
+        stroke: #cbd5e1;
+        stroke-width: 2.5;
+        filter: url(#shadow);
+      }
+      .box.parse { stroke: #2563eb; fill: #eff6ff; }
+      .box.prepare { stroke: #7c3aed; fill: #f5f3ff; }
+      .box.execute { stroke: #059669; fill: #ecfdf5; }
+      .box.final { stroke: #f97316; fill: #fff7ed; }
+      .text {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        fill: #0f172a;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .sub {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        fill: #64748b;
+        text-anchor: middle;
+      }
+      .arrow {
+        fill: none;
+        stroke: #64748b;
+        stroke-width: 3;
+        stroke-linecap: round;
+        marker-end: url(#arrow);
+      }
+      .stage-label-parse { fill: #2563eb }
+      .stage-label-prepare { fill: #7c3aed }
+      .stage-label-execute { fill: #059669 }
+      .stage-label-final { fill: #f97316 }
+      .stage-line-parse { stroke: #2563eb}
+      .stage-line-prepare { stroke: #7c3aed}
+      .stage-line-execute { stroke: #059669}
+      .stage-line-final { stroke: #f97316}
+    </style>
+  </defs>
+
+
+  <!-- Stage headers -->
+  <text class="stage-label" x="163" y="82">INPUT</text>
+  <line class="stage-line" x1="83" y1="100" x2="243" y2="100"/>
+
+  <text class="stage-label stage-label-parse" x="510" y="82">PARSING</text>
+  <line class="stage-line stage-line-parse" x1="313" y1="100" x2="703" y2="100"/>
+
+  <text class="stage-label stage-label-prepare" x="1090" y="82">PREPARATION</text>
+  <line class="stage-line stage-line-prepare" x1="773" y1="100" x2="1393" y2="100"/>
+
+  <text class="stage-label stage-label-execute" x="1050" y="372">EXECUTION</text>
+  <line class="stage-line stage-line-execute" x1="853" y1="390" x2="1243" y2="390"/>
+
+  <text class="stage-label stage-label-final" x="1390" y="372">FINALIZATION</text>
+  <line class="stage-line stage-line-final" x1="1300" y1="390" x2="1480" y2="390"/>
+
+  <!-- Main flow -->
+  <rect class="box" x="63" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="163" y="168">Readline</text>
+  <text class="text" x="163" y="192">input</text>
+
+  <rect class="box parse" x="293" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="393" y="168">Syntax</text>
+  <text class="text" x="393" y="192">validation</text>
+
+  <rect class="box parse" x="523" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="623" y="180">Tokenization</text>
+
+  <rect class="box prepare" x="753" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="853" y="168">Intermediate</text>
+  <text class="text" x="853" y="192">node list</text>
+
+  <rect class="box prepare" x="983" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="1083" y="156">Hybrid</text>
+  <text class="text" x="1083" y="180">execution tree</text>
+  <text class="text" x="1083" y="206">construction</text>
+
+  <rect class="box prepare" x="1213" y="124" width="200" height="112" rx="18"/>
+  <text class="text" x="1313" y="156">Variable, </text>
+  <text class="text" x="1313" y="180">wildcard, </text>
+  <text class="text" x="1313" y="206">quote expansion</text>
+
+  <rect class="box execute" x="833" y="414" width="200" height="112" rx="18"/>
+  <text class="text" x="933" y="458">Redirection and</text>
+  <text class="text" x="933" y="482">pipe setup</text>
+
+  <rect class="box execute" x="1063" y="414" width="200" height="112" rx="18"/>
+  <text class="text" x="1163" y="446">Built-in/external</text>
+  <text class="text" x="1163" y="470">command</text>
+  <text class="text" x="1163" y="494">execution</text>
+
+  <rect class="box final" x="1293" y="414" width="200" height="112" rx="18"/>
+  <text class="text" x="1393" y="458">Exit status update</text>
+  <text class="text" x="1393" y="482">and cleanup</text>
+
+  <!-- Arrows -->
+  <path class="arrow" d="M 263 180 H 284"/>
+  <path class="arrow" d="M 493 180 H 514"/>
+  <path class="arrow" d="M 723 180 H 744"/>
+  <path class="arrow" d="M 953 180 H 974"/>
+  <path class="arrow" d="M 1183 180 H 1204"/>
+  <path class="arrow"
+      d="M 1313 250
+         V 285
+         H 1050
+         V 340"
+      marker-end="url(#arrow)"/>
+  <path class="arrow" d="M 1033 480 H 1054"/>
+  <path class="arrow" d="M 1263 480 H 1284"/>
+
+</svg>

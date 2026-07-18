@@ -75,6 +75,7 @@ The project was implemented under several constraints defined by the 42 curricul
 - a single executable server handling all clients
 
 ## Solution
+
 The server uses an event-driven architecture built around non-blocking sockets and the `select()` system call to manage multiple client connections concurrently.
 
 Instead of spawning a thread or process for each client, the server runs a single event loop that monitors all connected sockets. When a socket becomes ready for reading or writing, the server processes that event and then returns to monitoring the rest.
