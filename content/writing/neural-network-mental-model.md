@@ -1,7 +1,7 @@
 ---
 title: "Learning Neural Networks Through Mental Models"
 summary: "Neural networks started making much more sense once I began viewing them through multiple mental models rather than isolated concepts. This article explores the different perspectives that helped deep learning feel less mysterious and more coherent."
-date: "2026-05-19"
+date: "2026-09-05"
 year: 2026
 featured: false
 image: "/sunrise-default.svg"
