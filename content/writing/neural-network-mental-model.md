@@ -16,11 +16,15 @@ tech:
 ---
 # Learning Neural Networks Through Mental Models
 
+<div id="scroll-trigger">
+
 For a while, neural networks felt like disconnected concepts: weights, activations, layers, gradients, backpropagation. These combined to make something incredibly effective, but it didn't fully click for me. It all felt strangely arbitrary. Why these pieces? Why this structure? 
 
 Then I watched <a href="https://www.youtube.com/watch?v=CqOfi41LfDw&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=2" target="_blank" rel="noopener noreferrer">Josh Starmer's StatQuest video</a> on the key ideas underlying neural networks. He presented neural networks as systems that sculpt functions. This new lens helped my understanding immediately.
 
 Then I got greedy and started looking for different explanations and mental models for neural networks. By the time I was done, I realised the different mental models explain different aspects of the same system. Together, they make neural networks feel much less mysterious. Learning to switch between these mental models fluidly was the breakthrough I needed. 
+
+</div>
 
 ## The Mental Models
 
