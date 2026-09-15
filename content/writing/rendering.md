@@ -8,7 +8,7 @@ image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
-  - label: Medium
+  - label: Code Like A Girl · Medium
     url: https://medium.com/code-like-a-girl/rendering-is-a-browser-decision-not-a-javascript-one-7a34f0b292c4
   - label: Dev.to
     url: https://dev.to/marshateo/rendering-is-a-browser-decision-not-a-javascript-one-47e3

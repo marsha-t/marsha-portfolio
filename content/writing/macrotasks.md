@@ -8,8 +8,8 @@ image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
-  - label: Medium
-    url: https://medium.com/@marshateo/macrotasks-what-a-task-actually-is-e194ee84859f
+  - label: JavaScript in Plain English · Medium
+    url: https://javascript.plainenglish.io/macrotasks-what-a-task-actually-is-e194ee84859f
   - label: Dev.to
     url: https://dev.to/marshateo/macrotasks-what-a-task-actually-is-4pbd
 ---

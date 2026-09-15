@@ -9,7 +9,7 @@ image: "/writing/portfolio-dark-mode/dark-mode.png"
 tech: 
   - JavaScript
 links:
-  - label: Medium
+  - label: Code Like A Girl · Medium
     url: https://code.likeagirl.io/i-thought-dark-mode-was-just-a-toggle-it-turned-into-a-full-system-refactor-65fd49245482
   - label: Dev.to
     url: https://dev.to/marshateo/i-thought-dark-mode-was-a-30-minute-task-it-turned-into-a-full-refactor-5bk5

@@ -8,8 +8,8 @@ image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
-  - label: Medium
-    url: https://medium.com/@marshateo/microtasks-why-promises-run-first-37fd5642daca
+  - label: JavaScript in Plain English · Medium
+    url: https://javascript.plainenglish.io/microtasks-why-promises-run-first-37fd5642daca
   - label: Dev.to
     url: https://dev.to/marshateo/microtasks-why-promises-run-first-4ba1
 ---

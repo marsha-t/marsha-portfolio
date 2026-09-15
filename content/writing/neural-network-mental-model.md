@@ -1,6 +1,6 @@
 ---
 title: "Learning Neural Networks Through Mental Models"
-summary: "Neural networks started making much more sense once I began viewing them through multiple mental models rather than isolated concepts. This article explores the different perspectives that helped deep learning feel less mysterious and more coherent."
+summary: "How ideas like function approximation, representation learning, optimisation and computational graphs finally made deep learning feel coherent"
 date: "2026-09-05"
 year: 2026
 featured: false
@@ -8,61 +8,80 @@ image: "/sunrise-default.svg"
 tech: 
   - Neural Networks
   - Machine Learning
-# links:
-#   - label: Medium
-#     url: https://medium.com/@marshateo/
-#   - label: Dev.to
-#     url: https://dev.to/marshateo/
+  - Artificial Intelligence
+links:
+  - label: Code Like A Girl · Medium
+    url: https://medium.com/code-like-a-girl/learning-neural-networks-through-mental-models-987640973005
+  - label: Dev.to
+    url: https://dev.to/marshateo/learning-neural-networks-through-mental-models-2nm7
 ---
 # Learning Neural Networks Through Mental Models
 
-For a while, neural networks felt like disconnected concepts: weights, activations, layers, gradients, backpropagation. These combined to make something incredibly effective, but it didn't fully click for me. It all felt strangely arbitrary. Why these pieces? Why this structure? 
+For a while, I understood neural networks mostly mechanically. Data entered the network, passed through layers, and eventually produced a prediction. Loss was calculated, gradients computed and weights updated. I could follow the sequence but the pieces still felt strangely arbitrary. Why this structure? Why did stacking layers make a network so powerful? Why were activation functions so important? I understood much of what the network was doing step by step, without feeling like I understood the network as a whole.
 
-Then I watched <a href="https://www.youtube.com/watch?v=CqOfi41LfDw&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=2" target="_blank" rel="noopener noreferrer">Josh Starmer's StatQuest video</a> on the key ideas underlying neural networks. He presented neural networks as systems that sculpt functions. This new lens helped my understanding immediately.
+Then I watched <a href="https://www.youtube.com/watch?v=CqOfi41LfDw&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=2" target="_blank" rel="noopener noreferrer">Josh Starmer's StatQuest video</a> on the key ideas underlying neural networks. He presented neural networks as systems that sculpt functions. Instead of following data through layers, I could zoom out and picture what those transformations were collectively constructing. That shift helped immediately.
 
-Then I got greedy and started looking for different explanations and mental models for neural networks. By the time I was done, I realised the different mental models explain different aspects of the same system. Together, they make neural networks feel much less mysterious. Learning to switch between these mental models fluidly was the breakthrough I needed. 
+Then I got greedy and started looking for other ways to think about neural networks. By the time I was done, I realised that different mental models made different questions easier to answer. Some let me zoom out and collapse the network into one idea; others broke it into smaller transformations or computations. Some connected neural networks to ideas I already understood, while others made me reinterpret concepts I thought I understood already. 
 
-## The Mental Models
+Together, they made neural networks feel much less mysterious. Learning to switch between these mental models was the breakthrough I needed.
 
-| Mental Model                     | Core Question                                                   | Main Insight                                                                           |
-| -------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [Black Box](#neural-networks-as-black-boxes)                       | How can we use neural networks before fully understanding them? | Neural networks can still be useful even when their internal reasoning remains opaque. |
-| [Function Approximation](#neural-networks-as-function-approximators)           | What is the network fundamentally doing?                        | A neural network is ultimately learning a function from inputs to outputs.             |
-| [Function Sculpting](#neural-networks-as-function-sculptors)               | How do simple neurons create complex functions?                 | Complex decision boundaries emerge from many local nonlinear transformations.          |
-| [Stack of Transformations](#neural-networks-as-stacks-of-transformations)         | Why are there multiple layers?                                  | Layers progressively reshape data through sequential transformations.                  |
-| [Representation Learning](#neural-networks-as-representation-learners)          | What are hidden layers learning?                                | Neural networks automatically learn useful internal representations.                   |
-| [Optimization System](#neural-networks-as-optimization-systems)              | Why does training behave the way it does?                       | Deep learning depends heavily on making optimization stable and effective.             |
-| [Computational Graph](#neural-networks-as-computational-graphs)              | How is learning mechanically computed?                          | Learning emerges from local derivative computations linked by the chain rule.          |
+## Neural Networks as Stacks of Transformations
 
-## Neural Networks as Black Boxes
+The mechanical understanding I started with was essentially viewing neural networks as a stack of transformations.
 
-For many, this is the first mental model encountered. You feed data in, predictions come out. Somewhere in between, something complex is happening. Maybe you know that tons of parameters are interacting. Maybe you are aware that the inputs are being combined and recombined such that they no longer really represent what you initially put in. But we struggle to fully explain why a particular internal representation emerges or why certain behaviours appear during training. So we categorise these are black boxes. 
+Each layer progressively transforms the data before passing it on:
 
-And for software developers, maybe we don't need to know. Modern tools offer powerful models at our fingertips that we can plug-and-play with. We import a framework, load pretrained weights, fine-tune a model and call an API. We can build useful systems while treating the network largely as an opaque component. We do not always need to fully understand the internals to use these systems effectively.
+$$\qquad x \rightarrow h_1 \rightarrow h_2 \rightarrow \dots \rightarrow y$$
 
-But eventually curiosity kicks in. That or we are forced to confront the model when training starts behaving strangely or debugging becomes necessary. Questions arise: Why do deeper networks work better? Why do activation functions matter? 
+where:
+- $x$ is the input
+- $h_1, h_2, \dots$ are intermediate hidden representations
+- $y$ is the final output
 
-The remaining mental models are attempts to answer questions like these. 
+This was probably my default mental model before I knew to call it one. It made the forward pass easy to follow: the input is transformed step by step until the network produces an output.
+
+For an image model, for example, this is often described as a progression from simpler patterns to increasingly complex ones:  
+
+$$\qquad pixels \rightarrow edges \rightarrow textures \rightarrow shapes \rightarrow objects$$
+
+Even for tasks like predicting customer churn, the same principle applies. The network progressively transforms raw features like age, transaction history and engagement metrics into intermediate features that eventually produce a prediction.
+
+This perspective helps explain why neural networks have depth at all. Each layer can transform the output of the previous layer, allowing complex computations to be built gradually through composition.
+
+Crucially, these transformations depend on nonlinear activation functions. Without nonlinearity, multiple stacked layers would collapse mathematically into a single linear transformation, no matter how deep the network became. Depth becomes powerful because the network can repeatedly apply and compose nonlinear transformations. Some transformations are easier to express gradually than all at once. 
+
+At the same time, this perspective kept my attention on the individual steps. I didn’t have a clear picture of what all those transformations were collectively doing. I needed to zoom out.
 
 ## Neural Networks as Function Approximators
 
-At its most abstract level, a neural network is one big function: 
+Function approximation gave me that zoomed-out view.
 
-$$f(x) = \text{some complicated mapping from inputs to outputs}$$
+I was already comfortable thinking about models like linear and logistic regression as functions. Given some inputs, these models learn a mapping that produces an output. A neural network can be understood in exactly the same way:
 
-The job of training is to learn a function that maps inputs to desired outputs, whether that is mapping images to labels, sentences to translations or customer data to churn probabilities. This framing is useful because it strips away much of the apparent mystery surrounding neural networks. Underneath all the layers, activations and gradients, the network is fundamentally still solving the familiar pattern of finding a function that captures patterns in data. 
+$$\qquad f(x) = \text{some complicated mapping from inputs to outputs}$$
 
-This mental model contextualises neural networks in the broader world of statistical and machine learning models. Linear regressions, logistic regressions, decision trees all learn a function. Neural networks simply learn far more flexible and expressive ones. A sufficiently large neural network can approximate highly complex nonlinear relationships that would be difficult to specify manually.
+This stripped away much of the apparent mystery surrounding neural networks. Underneath all that machinery, the network was still doing something familiar: learning a function that maps inputs to outputs, just like the other models I already understood. The difference was that neural networks could learn far more flexible and expressive functions.
 
-Function approximation explains what the network is learning.
+Function approximation helped me see what all those transformations were collectively constructing.
 
-But how do these complex functions emerge from simple neurons? The next section offers a more geometric intuition for how neural networks build these functions.
+But how do these complex functions emerge from simple neurons? 
 
 ## Neural Networks as Function Sculptors
 
-This is the mental model put forward by Josh Starmer in his <a href="https://www.youtube.com/watch?v=CqOfi41LfDw&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=2" target="_blank" rel="noopener noreferrer">StatQuest video</a>.
+I already understood abstractly that stacking layers with nonlinear activation functions allowed neural networks to model increasingly complex relationships. But I couldn’t visualise it.
 
-Each neuron works with a given activation function. The weights and biases slice, flip and stretch that same activation function into new shapes. As a result, each neuron applies a small nonlinear transformation to its input. These small transformations and shapes are stitched together across layers to create yet new shapes. A complex decision boundary emerges from many local transformations. 
+In Josh Starmer's <a href="https://www.youtube.com/watch?v=CqOfi41LfDw&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=2" target="_blank" rel="noopener noreferrer">explanation</a>, each neuron works with a given activation function. The weights and biases slice, flip and stretch that same activation function into new shapes. As a result, each neuron applies a small nonlinear transformation to its input. These small transformations and shapes are stitched together across layers to create yet new shapes. A complex function emerges from many local transformations. 
+
+For a single input, we can write a neuron's transformation as:
+
+$$\qquad h(x)=\sigma(wx+b)$$
+
+The activation function $\sigma$ provides the basic shape, while the weight $w$ and bias $b$ change how that shape is positioned and oriented relative to the input:
+- Changing the magnitude of the weight stretches or compresses the function.
+- Changing its sign can flip its orientation.
+- Changing the bias shifts where the activation occurs.
+
+Each neuron can therefore produce a different variation of the same basic activation function. The network can then combine these variations to construct something much more complex.
 
 <figure>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
@@ -76,138 +95,77 @@ Each neuron works with a given activation function. The weights and biases slice
   </figcaption>
 </figure>
 
-With Softplus function, a neuron can introduce a smooth bend into the function surface. With ReLU, neurons create piecewise linear folds and cuts. Deep layers combine thousands or millions of these local transformations. This progressively reshapes the function surface and produces highly complex functions and nonlinear decision boundaries. 
+With Softplus, a neuron can contribute smooth bends at different locations and scales. With ReLU, neurons contribute piecewise linear changes, with different neurons introducing change at different points. Deep networks combine huge numbers of these simple transformations, progressively sculpting a much more complex function.
 
 Don't take my word for it. Watch the video. His animations (and the noises he makes while calculating) make it worth your time. 
 
-From this lens, a neural network can be viewed as sculpting a function surface in high-dimensional space. This mental model is really a geometric version of function approximation:
-- Function approximation tells us _what_ the network does.
-- Function sculpting helps us visualise _how_ it happens.
+What clicked for me was that the network didn’t need any individual neuron to represent a complicated function. Each neuron could contribute something simple. Complexity emerged from composing and combining many of those simple transformations.
 
-## Neural Networks as Stacks of Transformations
-
-While the earlier mental models focused on the kinds of functions neural networks can express, this mental model focuses on how data is progressively transformed through the network.
-
-Each layer progressively transforms the data before passing it on:
-
-$$x \rightarrow h_1 \rightarrow h_2 \rightarrow \dots \rightarrow y$$
-
-where:
-- $(x)$ is the input
-- $(h_1, h_2, \dots)$ are intermediate hidden representations
-- $(y)$ is the final output
-
-Rather than jumping directly from input to prediction, the network processes the data through multiple stages. For images, this is often described as:  
-
-$$x \rightarrow pixels \rightarrow edges \rightarrow textures \rightarrow shapes \rightarrow objects$$ 
-
-For language models: 
-
-$$x \rightarrow tokens \rightarrow embeddings \rightarrow \text{contextual relationships} \rightarrow \text{semantic meaning}$$
-
-Even for tasks like predicting customer churn, the same principle applies. The network is still progressively transforming raw features like age, transaction history and engagement metrics into signals that become increasingly useful for separating likely churners from non-churners.
-
-This perspective helps explain why neural networks have depth at all. Each layer performs part of the transformation, allowing the network to build complex behaviour gradually through composition. Earlier layers produce simpler transformations that later layers can refine further.
-
-Crucially, these transformations depend on nonlinear activation functions. Without nonlinearity, multiple stacked layers would collapse mathematically into a single linear transformation, no matter how deep the network became. 
-
-The hidden layers are therefore not merely “extra computation”. They allow the network to repeatedly transform the data in ways that would be difficult to express in a single step.
-
-This mental model is especially useful because it shifts the focus away from the final prediction and toward the intermediate transformations happening inside the network: Each layer reorganises the data into forms that become easier for later layers to work with. Depth matters because some transformations are easier to express gradually than all at once. 
-
-The network is learning a sequence of increasingly useful transformations. But what exactly emerges from these transformations?
+Function approximation had helped me zoom out and see the network as one flexible function. Function sculpting let me zoom in just enough to see how that flexibility could be constructed.
 
 ## Neural Networks as Representation Learners
 
-The earlier transformation perspective focused on how data changes across layers. Representation learning shifts attention toward what kinds of internal structure emerge from those transformations.
+One thing that distinguishes neural networks from many of the models I was used to working with is that they can also learn how to represent the input itself.
 
-Traditional machine learning often relied heavily on hand-engineered features. If you wanted to classify images, you might manually design edge detectors, texture measurements and geometric descriptors. For customer churn prediction, you might manually engineer number of logins in the past month, average spending changes, customer inactivity windows and engagement scores. A large part of traditional machine learning involved deciding which features might matter before the model even began learning.
+In my previous experience with econometrics and causal inference, deciding how to represent a problem happened largely before fitting the model. I thought carefully about which variables to include, what they measured, and how they should be transformed. The model then learned from the representation I had given it. More broadly, traditional machine learning often involved substantial feature engineering: a classical image classifier might be given manually designed edge or texture features, while a churn model might use a constructed engagement index based on the number of logins in the past month, changes in spending, and periods of inactivity. A large part of traditional machine learning involved deciding which features might matter before the model even began learning.
 
-Neural networks changed this. 
+With neural networks, deciding how to represent the problem doesn’t happen entirely before training. The network also learns useful ways of representing the data. The hidden states in the stack of transformations aren’t just intermediate _values_ (outputs of one transformation that became the inputs to the next). Instead, each $h$ is also a new intermediate _representation_ of the original input:
 
-Instead of relying primarily on manually engineered features, hidden layers learn representations automatically. This is why neural networks are often described as systems for representation learning.
+$$\qquad x \rightarrow \underbrace{h_1 \rightarrow h_2 \rightarrow \dots}_{\text{learned representations}} \rightarrow y$$
+ 
+These representations are still just vectors of numbers. We do not explicitly tell individual dimensions what concepts they should represent. Instead, training adjusts the network's weights so that the representations produced by its hidden layers become useful for the final task. Structure in those representations therefore emerges as part of learning the task itself. This is why neural networks are often described as systems for representation learning.
 
-Importantly, this idea does not only apply to embedding models or large language models. Even relatively simple neural networks used for tasks like churn prediction are still learning internal structure from the data. The difference is mostly one of visibility and complexity.
+This applies even to relatively simple neural networks. For example, a churn model might start with separately observed variables such as login frequency, spending and time since last activity. A hidden representation can combine information across these variables into patterns that are more useful for predicting churn. This contrasts with explicitly constructing an “engagement” index before fitting the model: something capturing aspects of engagement may emerge within the network's hidden representation because it is useful for predicting churn. 
 
-A churn model may learn hidden behavioural patterns that help separate customers into different risk groups. A language model may learn highly structured semantic relationships across billions of words. Both are forms of representation learning.
+That does not necessarily mean that the network dedicates one hidden unit to a human-interpretable concept like “engagement.” The useful representation may instead be distributed across many dimensions.
 
-From this perspective, the hidden layers are constructing internal representations of the data that capture useful structure, and are not merely intermediate calculations. This perspective becomes especially powerful when thinking about embeddings, latent spaces, transformers and large language models. 
+In a larger language model, the learned representations can encode more complex semantic relationships. The scale and complexity differ, but both are forms of representation learning.
 
-For example, word embeddings place semantically similar words closer together in vector space.  The network is effectively learning geometry:
-- similar concepts cluster together
-- relationships become spatial
-- structure emerges within the representation space
+I had been thinking of learning primarily as learning a mapping from my representation of the problem to the target. Representation learning made me realise that the representation itself could be part of what was learned.
 
-Neural networks do not just learn mappings from inputs to outputs. They also learn how to internally represent the problem itself.
+## Neural Networks as Optimisation Systems
 
-## Neural Networks as Optimization Systems
-
-The earlier mental models focused largely on representation:
-- what kinds of functions neural networks can express
+The earlier mental models focused largely on what neural networks can represent:
+- what kinds of functions they can express
 - how layers transform data
-- what hidden layers may be learning
+- what hidden representations may emerge
 
-But how does the network actually find useful parameters among millions or even billions of possibilities? 
+But being able to represent a useful function doesn't mean the network can actually learn it.
 
-Unlike simpler models such as linear regression, neural networks generally do not have neat closed-form solutions. These parameters are learned iteratively through optimization. 
+Unlike simpler models such as linear regression, neural networks generally do not have neat closed-form solutions for their parameters. Instead, these parameters are learned iteratively through optimisation. 
 
-At first glance, optimization can seem like a secondary implementation detail — merely the mechanism through which weights get updated during training.
+At first glance, optimisation can seem like a secondary implementation detail, merely the mechanism through which weights get updated during training. But from the earlier perspectives, I had mostly been asking whether a network was capable of representing a useful function. Optimisation asks a different question: even if useful parameters exist, can training actually find them?
 
-But this perspective turns out to be central to understanding modern deep learning. Neural networks were already highly expressive decades ago. The challenge was whether optimization can actually find a useful solution. Gradient-based optimization struggled to reliably train deep networks. 
+This turns out to be central to understanding modern deep learning. Neural networks were already highly expressive decades ago, but gradient-based optimisation struggled to reliably train deep networks: gradients may vanish or explode, training can become unstable, and convergence can be highly sensitive to choices such as the learning rate and initialisation.
 
-Many important neural network behaviours are fundamentally optimization problems:
-- unstable training
-- exploding or vanishing gradients
-- slow convergence
-- sensitivity to learning rates
-- overfitting
-- training efficiency
+A large amount of progress in deep learning can be viewed through this lens. Activation functions such as ReLU helped alleviate some gradient problems; initialisation schemes helped signals and gradients remain better behaved across layers; learning-rate schedules changed how aggressively optimisation proceeds during training; and optimisers such as Adam changed how parameter updates are calculated.
 
-A large amount of deep learning progress was actually about making highly expressive neural networks trainable, which makes this mental model so useful. This is why explanations of neural networks inevitably discuss gradient descent, learning rates, loss functions and activation functions. These ideas are about helping optimization behave well:
-- activation functions like ReLU reducing vanishing gradients
-- adaptive gradient descent methods like Adam optimization accelerating convergence
-- learning rate schedules stabilizing training
-- modern initialization methods improving gradient flow
+For me, this perspective also gave me another way to understand why activation functions matter:
 
-These are all ideas that make highly expressive neural networks learnable through optimization. 
+- From the function-sculpting perspective, I had focused on the shapes different activation functions let the network construct. 
+- From the optimisation perspective, I started asking what those activation functions do to gradients during training. Sigmoid and tanh can saturate, producing very small gradients in some regions, while ReLU often allows gradients to propagate more effectively. 
 
-For me, this perspective also clarified why activation functions matter.
+Activation functions shape the function the network learns. On top of that, by affecting gradient flow, they also shape how easily those functions can be learned.
 
-At first, I assumed activation functions were mainly important because they create different decision boundary shapes. That is partially true:
-- ReLU tends to produce piecewise linear surfaces
-- sigmoid and tanh create smoother transitions
-- modern activations like GELU produce smoother adaptive behaviour
+This perspective also changed how I thought about architecture:
+- From my stack-of-transformations perspective, residual connections seemed strange. If each layer was supposed to progressively transform the representation, why let an earlier representation bypass a block and add it back later?
+- From an optimisation perspective, the question changes. Residual connections provide identity paths through deep networks, helping information and gradients flow and allowing blocks to learn changes to an existing representation. What had looked awkward from one mental model made much more sense from another.
 
-But this is not the main reason different activation functions are used. With enough neurons and layers, many activation functions can approximate similar functions anyway. The more important difference is how they affect optimization issues like vanishing gradients and training stability.
-
-Activation functions are not just shaping functions. As with many concepts in neural networks, they are shaping learning itself.
+This perspective helped explain why so much of deep learning is about more than designing expressive architectures. It is also about making those architectures trainable.
 
 ## Neural Networks as Computational Graphs
 
-The optimization perspective explains why gradients matter. But how are the gradients computed? 
+The optimisation perspective explains why gradients matter. But how are the gradients computed? 
 
-Somehow the network computes useful gradients across millions or even billions of parameters and uses them to update itself. This leads to the computational graph perspective.
+Function approximation taught me to think of a neural network as one enormous function. But trying to imagine its derivatives gave me a headache. Differentiating an enormous, complicated function with millions of parameters sounded overwhelming.
 
-Without this perspective, backpropagation can feel like a memorized algorithm. With it, backpropagation becomes much less mysterious: it is simply repeated applications of the chain rule across a graph of computations.
+The computational graph perspective reverses that. It breaks this gigantic function back into the small operations that produce it.
 
-Like several earlier mental models, this perspective also decomposes neural networks into smaller pieces. Here, the network becomes a composition of differentiable operations connected through data flow.
+$$\qquad f(x) =f_3(f_2(f_1(x)))$$
 
-A neural network can be viewed as a computational graph:
-
-- nodes represent operations or intermediate values
-- edges represent data flow between computations
-
-From this perspective, neural networks become compositions of many smaller operations:
-
-$$f(x) =f_3(f_2(f_1(x)))$$
-
-During the forward pass, data moves through the graph step by step:
-- inputs are transformed
-- activations are computed
-- predictions are produced
-- loss is calculated
-
-Training then traverses this graph backward to compute gradients. 
+This stack of transformations, $x \rightarrow h_1 \rightarrow h_2 \rightarrow \dots \rightarrow y$, is also a sequence of dependencies:
+- During the forward pass, values move through the graph step by step: inputs are transformed; activations are computed; predictions are produced; and loss is calculated.
+- During the backward pass, those same dependencies let us trace how each earlier computation contributed to the final loss.
 
 <figure>
   <div className="bg-[var(--bg-secondary)] p-4 rounded-xl block dark:hidden">
@@ -217,38 +175,47 @@ Training then traverses this graph backward to compute gradients.
       <img src="/writing/neural-network-mental-model/computational-graph-dark.svg" />
   </div>
   <figcaption>
-    The computational graph perspective decomposes a neural network into smaller differentiable computations. During the forward pass, values flow through the graph to produce a prediction and compute the loss. During the backward pass, gradients flow back through the same graph using the chain rule.
+    The computational graph perspective decomposes a neural network into smaller computations. During the forward pass, values flow through the graph to produce a prediction and compute the loss. During the backward pass, gradients flow back through the same graph using the chain rule.
   </figcaption>
 </figure>
 
-The key insight is that learning does not happen through one enormous global calculation. Each operation only needs to compute local derivatives with respect to its own inputs. The chain rule then links these local computations together, allowing gradients to propagate backward through the entire network.
+Consider this tiny sequence of operations:
 
-This perspective also clarifies why differentiability matters so much in deep learning. Optimization depends on gradients, gradients depend on derivatives, and derivatives require differentiable computations.
+$$\qquad a = wx$$
 
-More broadly, the computational graph perspective makes neural networks feel less like monolithic black boxes and more like structured systems of computation.
+$$\qquad z = a + b$$
 
-Underneath all the high-level intuition, a neural network is still fundamentally a large differentiable program.
+$$\qquad y = \sigma(z)$$
+
+To understand how changing $w$ affects $y$, we do not need to treat the entire computation as one giant derivative. The chain rule lets us break the derivative into local pieces:
+
+$$\qquad \frac{\partial y}{\partial w} = \frac{\partial y}{\partial z} \frac{\partial z}{\partial a} \frac{\partial a}{\partial w}$$
+
+Gradients aren’t computed as one enormous derivative. Each operation only needs information about its own local derivative with respect to its own inputs. Backpropagation works backwards through the computational graph, stitching these local derivatives together according to the chain rule. The same principle scales from this tiny example to networks containing enormous numbers of operations and parameters.
+
+Function approximation helped me see the network as one enormous function. The computational-graph perspective showed me how that enormous function could still be differentiated and trained through local computations.
 
 # Conclusion
 
 Neural networks became much easier to understand once I stopped searching for a single explanation.
 
-Different mental models illuminate different aspects of the same system:
+What I initially thought of as the way a neural network worked, i.e., data moving through a stack of layers, was really just one useful perspective. This same system could be viewed at very different scales. I could zoom out and view the system as a single function, or zoom in and think about individual transformations and computations. I could think about what representations the network was learning, or switch questions entirely and ask whether optimisation could actually find them.
 
-- geometry
-- representation
-- optimization
-- computation
+What surprised me most was that a mental model that made one question easier could make another harder to reason about:
 
-The real shift was learning to move between these perspectives fluidly.
+- Thinking of a neural network as one enormous function connected it to more familiar machine learning models but made the idea of differentiating it overwhelming. Instead, breaking that same function into a computational graph made backpropagation much easier to understand.
 
-Sometimes a neural network feels like:
-- a function approximator
-- a geometric sculptor
-- a hierarchy of transformations
-- an optimization system
-- a computational graph
+- Residual connections were initially confusing when I viewed networks as stacks of transformations. However, from an optimisation perspective, their purpose made more sense.
 
-No single perspective fully explains neural networks. But together, these mental models make them feel far less mysterious.
+No single perspective fully explains neural networks. Each lens makes certain aspects of the same system easier to understand. The real shift was learning which mental model to reach for when something stopped making sense.
 
-And somehow, all of these are true at once.
+## The Mental Models
+
+| Mental Model | Question | Main Insight |
+|---|---|---|
+| [Stack of Transformations](#neural-networks-as-stacks-of-transformations) | Why are there multiple layers? | Layers progressively reshape data into new representations. |
+| [Function Approximation](#neural-networks-as-function-approximators) | What is the network fundamentally doing? | A neural network is ultimately learning a function from inputs to outputs. |
+| [Function Sculpting](#neural-networks-as-function-sculptors) | How do simple neurons create complex functions? | Complex functions emerge from many simple nonlinear transformations. |
+| [Representation Learning](#neural-networks-as-representation-learners) | What are hidden layers learning? | Neural networks learn useful internal representations of the input. |
+| [Optimisation System](#neural-networks-as-optimisation-systems) | Why do so many design choices concern training? | Expressiveness isn’t enough; optimisation has to find useful parameters. |
+| [Computational Graph](#neural-networks-as-computational-graphs) | How are gradients actually computed? | Derivative calculations can be decomposed into local derivatives stitched together by the chain rule. |
