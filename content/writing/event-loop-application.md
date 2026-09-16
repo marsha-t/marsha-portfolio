@@ -23,6 +23,8 @@ links:
 
 # The Scheduling Boundaries Behind Responsive UI
 
+<div id="scroll-trigger">
+
 We now know how the event loop and rendering pipeline behave.  
 
 The browser:
@@ -34,6 +36,8 @@ The browser:
 * Moves on to the next macrotask.
 
 Given that environment, how should we write UI code?
+
+</div>
 
 ## Long Tasks Block Everything
 If you want the UI to stay responsive, your tasks must yield quickly.
