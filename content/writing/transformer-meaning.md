@@ -1,7 +1,7 @@
 ---
 title: "Where Does 'Meaning' Come From in a Transformer?"
 summary: "Why does a CLS token come to represent an image? What makes a query a query, or a positional embedding positional? This article explores how architecture, objectives, and training give learned Transformer components their roles."
-date: "2026-09-08"
+date: "2026-09-16"
 year: 2026
 featured: false
 image: "/sunrise-default.svg"
