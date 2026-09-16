@@ -8,8 +8,8 @@ image: "/sunrise-default.svg"
 tech: 
   - JavaScript
 links:
-  - label: Medium
-    url: https://medium.com/@marshateo/async-await-pausing-a-function-without-pausing-javascript-5e3e2a68f1f2
+  - label: JavaScript in Plain English · Medium
+    url: https://medium.com/javascript-in-plain-english/async-await-pausing-a-function-without-pausing-javascript-5e3e2a68f1f2
   - label: Dev.to
     url: https://dev.to/marshateo/async-await-pausing-a-function-without-pausing-javascript-3c0e
 ---
