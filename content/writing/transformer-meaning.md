@@ -9,11 +9,11 @@ tech:
   - Neural Networks
   - Machine Learning
   - Transformers
-# links:
-#   - label: Medium
-#     url: https://medium.com/@marshateo/
-#   - label: Dev.to
-#     url: https://dev.to/marshateo/
+links:
+  - label: Code Like A Girl · Medium
+    url: https://code.likeagirl.io/where-does-meaning-come-from-in-a-transformer-bc957f464957
+  - label: Dev.to
+    url: https://dev.to/marshateo/where-does-meaning-come-from-in-a-transformer-1o4k
 ---
 
 # Where Does “Meaning” Come From in a Transformer?
