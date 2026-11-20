@@ -1,5 +1,5 @@
 ---
-title: "Minishell - Unix Shell in C"
+title: "Minishell — Unix Shell in C"
 summary: "Custom Unix shell in C built around a hybrid AST-like execution tree for parsing, pipelines, redirections, and conditional execution"
 date: "2024-07-24"
 year: 2024
@@ -19,7 +19,7 @@ links:
 team: 2
 
 ---
-# Minishell - Unix Shell in C
+# Minishell — Unix Shell in C
 *Building a Unix shell from scratch with parsing, process execution, pipes, redirections, and interactive behaviour*
 
 

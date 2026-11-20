@@ -22,7 +22,7 @@ links:
     url: https://github.com/marsha-t/ft_transcendence
 team: 4
 ---
-# ft_transcendence: A Real-Time Pong Platform
+# ft_transcendence — A Real-Time Pong Platform
 *Designing a real-time multiplayer game system with microservices, WebSockets, and full-stack tournament play*
 
 <figure id="hero-image">
